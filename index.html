@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Josef Rolando II P. Anza — Cybersecurity & UI Developer</title>
-  <!-- Tailwind CSS CDN -->
+  <title>Josef Rolando II P. Anza — Portfolio</title>
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -15,108 +15,68 @@
             sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
             mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
           },
-          colors: {
-            brand: {
-              50: '#eff6ff',
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
-              900: '#1e3a8a',
-            }
-          }
         },
       },
     };
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
-
   <style>
-    /* 3D Perspective & Flipping Architecture */
+    /* 3D Transform & Lanyard Styles */
     .perspective-container {
       perspective: 1200px;
     }
-    
-    .badge-flipper {
+    .badge-card {
       transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      width: 100%;
-      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
     }
-
-    .badge-flipper.flipped {
-      transform: rotateY(180deg);
-    }
-
-    .badge-face {
+    .card-face {
+      position: absolute;
+      inset: 0;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      transform-style: preserve-3d;
+      border-radius: 1rem;
     }
-
-    .badge-back {
+    .card-back {
       transform: rotateY(180deg);
     }
-
     .badge-glare {
       background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 65%);
       pointer-events: none;
     }
-
     @keyframes gentleSway {
-      0%, 100% { transform: rotate(-1.2deg) translateY(0); }
-      50% { transform: rotate(1.2deg) translateY(-3px); }
+      0%, 100% { transform: rotate(-1.5deg) translateY(0); }
+      50% { transform: rotate(1.5deg) translateY(-4px); }
     }
-
     .swaying {
       animation: gentleSway 5s ease-in-out infinite;
     }
-
-    /* Hologram foil reflection effect */
-    .hologram-chip {
-      background: linear-gradient(135deg, #fcd34d 0%, #38bdf8 30%, #ec4899 60%, #a855f7 100%);
-      background-size: 200% 200%;
-      animation: shimmer 4s ease infinite;
+    .hologram-foil {
+      background: linear-gradient(135deg, rgba(255,0,128,0.15), rgba(0,255,255,0.15), rgba(255,255,0,0.15));
+      mix-blend-mode: overlay;
     }
-
-    @keyframes shimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Drawer Transition */
-    .drawer-backdrop {
-      transition: opacity 0.3s ease-in-out;
-    }
-    .drawer-panel {
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
     ::selection { background-color: #3b82f6; color: #ffffff; }
   </style>
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen selection:bg-blue-600 selection:text-white">
 
-  <!-- Background Glow Orbs -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+  <!-- Background Glow Elements -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden">
     <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
     <div class="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
   </div>
 
-  <!-- Header & Primary Controls -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-[#0b0f19]/80 border-b border-slate-800/80">
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[#0b0f19]/80 border-b border-slate-800/60">
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
         <span class="font-semibold text-sm tracking-tight text-white">Josef Anza</span>
-        <span class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">IT · Sec & UI</span>
       </div>
-      
+
       <nav class="hidden md:flex items-center gap-6 text-xs font-mono text-slate-400">
         <a href="#about" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">About</a>
         <a href="#projects" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Projects</a>
@@ -124,24 +84,36 @@
         <a href="#credentials" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Credentials</a>
       </nav>
 
-      <div class="flex items-center gap-2.5">
-        <!-- Interactive Synthesized Audio Switch -->
-        <button id="sfx-toggle" onclick="toggleAudio()" onmouseenter="playSfx('hover')" class="px-2.5 py-1.5 rounded-lg text-xs font-mono border border-slate-800 bg-slate-900/90 text-slate-400 hover:text-white transition flex items-center gap-1.5 shadow-sm">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- SFX Toggle -->
+        <button id="sfx-toggle" onclick="toggleAudio()" class="px-2 py-1.5 rounded-lg text-xs font-mono border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-white transition flex items-center gap-1.5">
           <i data-lucide="volume-x" id="sfx-icon" class="w-3.5 h-3.5 text-slate-500"></i>
-          <span id="sfx-text">SFX: OFF</span>
+          <span id="sfx-text" class="hidden sm:inline">SFX: OFF</span>
         </button>
 
-        <a href="mailto:jorolanza14@gmail.com" onmouseenter="playSfx('hover')" class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white transition shadow-sm shadow-blue-500/25">
+        <!-- LinkedIn Header Icon -->
+        <a href="https://www.linkedin.com/in/jorol-anza-118665399/" target="_blank" rel="noopener noreferrer" onmouseenter="playSfx('hover')" onclick="playSfx('click')" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 transition" title="LinkedIn Profile">
+          <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i>
+        </a>
+
+        <!-- Resume Download / View Button -->
+        <button onclick="openResumeModal()" onmouseenter="playSfx('hover')" class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-800 hover:bg-slate-700 text-blue-300 border border-slate-700/80 transition flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>Resume</span>
+        </button>
+
+        <a href="mailto:jorolanza14@gmail.com" onmouseenter="playSfx('hover')" onclick="playSfx('click')" class="hidden sm:inline-flex px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white transition shadow-sm shadow-blue-500/20">
           Contact Me
         </a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6 py-12 sm:py-20 relative z-10">
+  <!-- Hero Section with Interactive 3D Lanyard ID Badge -->
+  <main class="max-w-5xl mx-auto px-6 py-12 sm:py-20">
     <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
       
-      <!-- Left Column: Professional Narrative -->
+      <!-- Left Column: Introduction & Pitch -->
       <div class="lg:col-span-7 space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
           <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
@@ -156,266 +128,230 @@
           Information Technology graduate from <strong class="text-white">Mapúa University</strong> (1.334 GWA, Dean's Lister Rank 4). Aspiring <strong class="text-white">Web & UI Developer</strong> passionate about designing clean, intuitive interfaces backed by rock-solid cybersecurity fundamentals and defensive coding.
         </p>
 
-        <!-- Fast Credential Highlights -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1 text-xs">
-          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+        <!-- Fast Contact Stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs">
+          <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
             <span class="text-slate-500 block font-mono text-[10px] uppercase">Location</span>
             <span class="font-medium text-slate-200">Meycauayan, PH</span>
           </div>
-          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
-            <span class="text-slate-500 block font-mono text-[10px] uppercase">Academic Standing</span>
+          <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-slate-500 block font-mono text-[10px] uppercase">Degree Honors</span>
             <span class="font-medium text-blue-400">Top IT Student '24–'25</span>
           </div>
-          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 col-span-2 sm:col-span-1">
-            <span class="text-slate-500 block font-mono text-[10px] uppercase">Domain Focus</span>
-            <span class="font-medium text-slate-200">Defensive UI & Sec</span>
+          <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 col-span-2 sm:col-span-1">
+            <span class="text-slate-500 block font-mono text-[10px] uppercase">Specialization</span>
+            <span class="font-medium text-slate-200">Cybersecurity & UI</span>
           </div>
         </div>
 
-        <!-- Quick Contacts & Actions -->
+        <!-- Action Buttons -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
-          <button onclick="copyEmail()" onmouseenter="playSfx('hover')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium bg-slate-800/90 hover:bg-slate-700 text-white border border-slate-700/80 transition">
+          <!-- LinkedIn Action -->
+          <a href="https://www.linkedin.com/in/jorol-anza-118665399/" target="_blank" rel="noopener noreferrer" onmouseenter="playSfx('hover')" onclick="playSfx('click')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-sm shadow-blue-500/20 transition">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+            <span>LinkedIn Profile</span>
+          </a>
+
+          <!-- Resume PDF Button -->
+          <button onclick="openResumeModal()" onmouseenter="playSfx('hover')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium bg-slate-800 hover:bg-slate-700 text-white border border-slate-700/80 transition">
+            <i data-lucide="file-down" class="w-4 h-4 text-blue-400"></i>
+            <span>View Resume PDF</span>
+          </button>
+
+          <!-- Email Copy -->
+          <button onclick="copyEmail()" onmouseenter="playSfx('hover')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">
             <i data-lucide="mail" class="w-4 h-4 text-blue-400"></i>
             <span id="email-text">jorolanza14@gmail.com</span>
             <span id="copy-badge" class="font-mono text-[10px] text-slate-400 ml-1">copy</span>
           </button>
-          <a href="tel:+639564495858" onmouseenter="playSfx('hover')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">
-            <i data-lucide="phone" class="w-4 h-4 text-slate-400"></i>
-            <span>+63 956 449 5858</span>
-          </a>
         </div>
       </div>
 
-      <!-- Right Column: Interactive 3D Double-Sided Lanyard Badge -->
+      <!-- Right Column: Interactive 3D Lanyard & ID Card (Flippable) -->
       <div class="lg:col-span-5 flex flex-col items-center justify-center perspective-container select-none">
         
-        <!-- Lanyard Ribbon -->
+        <!-- Lanyard Strap Top -->
         <div class="w-10 h-16 bg-gradient-to-b from-blue-700 to-blue-900 rounded-t-sm shadow-md flex items-center justify-center relative">
           <span class="text-[9px] font-mono text-blue-200 font-bold uppercase tracking-widest rotate-90">MAPÚA</span>
         </div>
-        <!-- Metallic Carabiner / Swivel Hook -->
+        <!-- Metallic Carabiner Clip -->
         <div class="w-6 h-5 border-2 border-slate-400 bg-slate-600 rounded-b-md shadow-inner mb-[-2px] z-10 flex items-center justify-center">
           <div class="w-2.5 h-1.5 bg-slate-800 rounded-full"></div>
         </div>
 
-        <!-- Lanyard Physics Container -->
-        <div id="interactive-card" class="swaying relative w-72 sm:w-80 h-[470px] cursor-grab active:cursor-grabbing">
-          
-          <!-- Inner Double-Sided Flipper -->
-          <div id="badge-flipper-core" class="badge-flipper w-full h-full relative">
+        <!-- 3D Flippable Hanging Badge -->
+        <div id="interactive-card-wrapper" class="relative w-72 sm:w-80 h-[470px]">
+          <div id="interactive-card" class="badge-card swaying w-full h-full relative cursor-grab active:cursor-grabbing">
             
-            <!-- ================= FRONT SIDE ================= -->
-            <div class="badge-face absolute inset-0 rounded-2xl bg-gradient-to-b from-slate-900 to-[#121929] border border-blue-500/40 p-5 shadow-2xl flex flex-col justify-between">
-              <div>
-                <!-- Badge Punch Hole -->
-                <div class="w-12 h-2.5 bg-slate-950 rounded-full mx-auto mb-4 border border-slate-800"></div>
+            <!-- FRONT SIDE OF BADGE -->
+            <div class="card-face p-5 bg-gradient-to-b from-slate-900 to-[#121929] border border-blue-500/40 shadow-2xl flex flex-col justify-between">
+              <!-- Card Hole Clip -->
+              <div class="w-12 h-2.5 bg-slate-950 rounded-full mx-auto mb-2 border border-slate-800"></div>
 
-                <!-- Badge Header -->
-                <div class="flex items-center justify-between mb-3">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-[10px] font-mono tracking-widest uppercase text-slate-400">MAPUA IT ACCREDITED</span>
-                  </div>
-                  <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">2026</span>
+              <!-- Card Header -->
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="text-[10px] font-mono tracking-widest uppercase text-slate-400">MAPUA IT ACCREDITED</span>
                 </div>
-
-                <!-- Permanent Framed Portrait -->
-                <div class="relative w-full h-64 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 shadow-inner mb-3 flex items-center justify-center">
-                  <img src="pfp.jpg" alt="Josef Rolando Anza" class="w-full h-full object-cover object-top contrast-105 select-none pointer-events-none" onerror="this.src='https://placehold.co/400x500/0f172a/60a5fa?text=Josef+Anza'" />
-                  <div class="badge-glare absolute inset-0"></div>
-                </div>
-
-                <!-- Identity Block -->
-                <div class="space-y-0.5">
-                  <h2 class="text-base font-bold text-white tracking-wide">Josef Rolando II P. Anza</h2>
-                  <p class="text-xs text-blue-400 font-mono font-medium">Cybersecurity Major · UI Developer</p>
-                  <p class="text-[11px] text-slate-400">Mapúa University Makati</p>
-                </div>
+                <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">2026</span>
               </div>
 
-              <!-- Barcode & Serial -->
-              <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
+              <!-- Portrait Frame -->
+              <div class="relative w-full h-64 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 shadow-inner mb-3 flex items-center justify-center">
+                <img src="pfp.jpg" alt="Josef Rolando Anza" class="w-full h-full object-cover object-top contrast-105 select-none pointer-events-none" />
+                <div class="badge-glare absolute inset-0"></div>
+              </div>
+
+              <!-- Identity Details -->
+              <div class="space-y-0.5">
+                <h2 class="text-base font-bold text-white tracking-wide">Josef Rolando II P. Anza</h2>
+                <p class="text-xs text-blue-400 font-mono font-medium">Cybersecurity Major · UI Developer</p>
+                <p class="text-[11px] text-slate-400">Mapúa University Makati</p>
+              </div>
+
+              <!-- Card Footer -->
+              <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between">
                 <span class="text-[10px] font-mono text-slate-500">ID: SEC-2026-IT</span>
-                <div class="flex gap-0.5 items-center h-4 opacity-75">
-                  <span class="w-0.5 h-full bg-slate-500"></span>
-                  <span class="w-1 h-full bg-slate-500"></span>
-                  <span class="w-0.5 h-full bg-slate-500"></span>
-                  <span class="w-1.5 h-full bg-slate-500"></span>
-                  <span class="w-0.5 h-full bg-slate-500"></span>
-                  <span class="w-1 h-full bg-slate-500"></span>
-                  <span class="w-2 h-full bg-slate-500"></span>
-                </div>
+                <button onclick="flipBadge(event)" onmouseenter="playSfx('hover')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 text-[10px] font-mono flex items-center gap-1 transition">
+                  <i data-lucide="rotate-cw" class="w-3 h-3"></i> Flip ID
+                </button>
               </div>
 
               <div id="card-glare" class="badge-glare absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-200"></div>
             </div>
 
-            <!-- ================= BACK SIDE (SECURITY CLEARANCE & QR) ================= -->
-            <div class="badge-face badge-back absolute inset-0 rounded-2xl bg-gradient-to-b from-[#0a0f1d] via-[#0d1527] to-[#080d1a] border border-cyan-500/40 p-5 shadow-2xl flex flex-col justify-between">
-              <div>
-                <!-- Punch Hole -->
-                <div class="w-12 h-2.5 bg-slate-950 rounded-full mx-auto mb-3 border border-slate-800"></div>
+            <!-- BACK SIDE OF BADGE (Security Clearance & Scannable QR) -->
+            <div class="card-face card-back p-5 bg-gradient-to-b from-[#0e1424] to-[#090d16] border border-cyan-500/40 shadow-2xl flex flex-col justify-between">
+              <!-- Card Hole Clip -->
+              <div class="w-12 h-2.5 bg-slate-950 rounded-full mx-auto mb-2 border border-slate-800"></div>
 
-                <!-- Back Header: Security Clearance -->
-                <div class="flex items-center justify-between pb-2 border-b border-slate-800">
-                  <div class="flex items-center gap-1.5">
-                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyan-400"></i>
-                    <span class="text-[10px] font-mono font-semibold text-cyan-300 tracking-wider">DEFENSIVE CLEARANCE</span>
-                  </div>
-                  <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">LEVEL 4 ADMIN</span>
+              <!-- Clearance Header -->
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                  <span class="text-[11px] font-mono font-bold tracking-wider text-emerald-400">SECURITY CLEARANCE</span>
                 </div>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">TIER 1 ADMIN</span>
+              </div>
 
-                <!-- Holographic Chip & Access Metrics -->
-                <div class="mt-3 grid grid-cols-3 gap-2 items-center p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                  <div class="w-10 h-8 rounded-md hologram-chip border border-yellow-200/40 shadow-sm relative overflow-hidden flex items-center justify-center">
-                    <div class="w-6 h-5 border border-black/30 rounded-sm grid grid-cols-2 grid-rows-2 gap-0.5">
-                      <div class="bg-black/20"></div>
-                      <div class="bg-black/20"></div>
-                      <div class="bg-black/20"></div>
-                      <div class="bg-black/20"></div>
-                    </div>
-                  </div>
-                  <div class="col-span-2 text-[10px] font-mono space-y-0.5 leading-tight">
-                    <span class="text-slate-500 block">PROTOCOL STATUS</span>
-                    <span class="text-emerald-400 font-semibold">VERIFIED DEFENDER</span>
-                    <span class="text-slate-400 block text-[9px]">EXP: 2028-Q4 · MAPÚA SOC</span>
-                  </div>
+              <!-- Holographic Foil & Details -->
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 relative overflow-hidden space-y-2 text-[11px] font-mono">
+                <div class="hologram-foil absolute inset-0 pointer-events-none"></div>
+                <div class="flex justify-between text-slate-400">
+                  <span>CLEARANCE ID:</span>
+                  <span class="text-white font-semibold">SEC-0926-MAPUA</span>
                 </div>
-
-                <!-- Interactive Scannable QR Code Box -->
-                <div class="mt-3 p-3 bg-white rounded-xl flex flex-col items-center justify-center shadow-md">
-                  <!-- Vector QR Code with clean contrast -->
-                  <svg class="w-32 h-32" viewBox="0 0 100 100" fill="black">
-                    <!-- Standard QR corner markers and stylized matrix -->
-                    <rect x="5" y="5" width="28" height="28" fill="#0b0f19" rx="3"/>
-                    <rect x="9" y="9" width="20" height="20" fill="white" rx="2"/>
-                    <rect x="13" y="13" width="12" height="12" fill="#0b0f19" rx="1"/>
-
-                    <rect x="67" y="5" width="28" height="28" fill="#0b0f19" rx="3"/>
-                    <rect x="71" y="9" width="20" height="20" fill="white" rx="2"/>
-                    <rect x="75" y="13" width="12" height="12" fill="#0b0f19" rx="1"/>
-
-                    <rect x="5" y="67" width="28" height="28" fill="#0b0f19" rx="3"/>
-                    <rect x="9" y="71" width="20" height="20" fill="white" rx="2"/>
-                    <rect x="13" y="75" width="12" height="12" fill="#0b0f19" rx="1"/>
-
-                    <!-- Data dots -->
-                    <rect x="38" y="8" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="48" y="14" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="38" y="24" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="56" y="8" width="6" height="6" fill="#0b0f19"/>
-                    
-                    <rect x="8" y="38" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="18" y="48" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="28" y="38" width="6" height="6" fill="#0b0f19"/>
-                    
-                    <rect x="38" y="38" width="8" height="8" fill="#2563eb" rx="2"/>
-                    <rect x="52" y="38" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="42" y="52" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="56" y="52" width="8" height="8" fill="#0b0f19"/>
-
-                    <rect x="70" y="38" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="84" y="44" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="74" y="56" width="6" height="6" fill="#0b0f19"/>
-
-                    <rect x="38" y="68" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="48" y="76" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="38" y="84" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="58" y="70" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="56" y="84" width="8" height="8" fill="#0b0f19"/>
-
-                    <rect x="72" y="72" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="82" y="82" width="6" height="6" fill="#0b0f19"/>
-                    <rect x="72" y="88" width="6" height="6" fill="#0b0f19"/>
-                  </svg>
-                  <span class="text-[9px] font-mono text-slate-800 font-semibold mt-1">SCAN FOR CV & PROFILES</span>
+                <div class="flex justify-between text-slate-400">
+                  <span>PUBLIC KEY HASH:</span>
+                  <span class="text-blue-400">0x7F...2B9C</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>STATUS:</span>
+                  <span class="text-emerald-400 font-semibold">ACTIVE DEFENDER</span>
                 </div>
               </div>
 
-              <!-- Digital SHA-256 Hash Signature -->
-              <div class="pt-2 border-t border-slate-800 text-[9px] font-mono text-slate-400 space-y-0.5">
-                <div class="flex justify-between items-center text-slate-500">
-                  <span>SHA-256 INTEGRITY:</span>
-                  <span class="text-cyan-400">AUTHENTIC</span>
+              <!-- Direct Link & Scannable QR -->
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <div class="w-20 h-20 bg-white p-1 rounded-lg shrink-0 flex items-center justify-center">
+                  <!-- Vector QR to LinkedIn -->
+                  <svg viewBox="0 0 100 100" class="w-full h-full fill-black">
+                    <rect x="0" y="0" width="30" height="30"/>
+                    <rect x="5" y="5" width="20" height="20" fill="white"/>
+                    <rect x="10" y="10" width="10" height="10"/>
+                    <rect x="70" y="0" width="30" height="30"/>
+                    <rect x="75" y="5" width="20" height="20" fill="white"/>
+                    <rect x="80" y="10" width="10" height="10"/>
+                    <rect x="0" y="70" width="30" height="30"/>
+                    <rect x="5" y="75" width="20" height="20" fill="white"/>
+                    <rect x="10" y="80" width="10" height="10"/>
+                    <rect x="35" y="10" width="10" height="10"/>
+                    <rect x="50" y="10" width="10" height="10"/>
+                    <rect x="35" y="35" width="30" height="30"/>
+                    <rect x="70" y="50" width="10" height="20"/>
+                    <rect x="50" y="70" width="20" height="10"/>
+                    <rect x="80" y="80" width="15" height="15"/>
+                  </svg>
                 </div>
-                <div class="p-1 rounded bg-slate-950/80 text-[8px] text-slate-400 truncate border border-slate-800">
-                  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                <div class="space-y-1.5 text-[11px] font-mono">
+                  <span class="text-slate-300 font-medium block">Scan or Open Profile:</span>
+                  <a href="https://www.linkedin.com/in/jorol-anza-118665399/" target="_blank" rel="noopener noreferrer" onclick="playSfx('click')" class="text-blue-400 hover:underline flex items-center gap-1">
+                    <i data-lucide="external-link" class="w-3 h-3"></i> linkedin.com/in/jorol-anza
+                  </a>
+                  <button onclick="openResumeModal()" class="text-cyan-400 hover:underline flex items-center gap-1 text-[10px]">
+                    <i data-lucide="file-text" class="w-3 h-3"></i> Open Resume PDF
+                  </button>
                 </div>
+              </div>
+
+              <!-- Flip Back Button -->
+              <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
+                <span class="text-[9px] font-mono text-slate-500">DIGITAL ASSET · JOSEF ANZA</span>
+                <button onclick="flipBadge(event)" onmouseenter="playSfx('hover')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 text-[10px] font-mono flex items-center gap-1 transition">
+                  <i data-lucide="rotate-ccw" class="w-3 h-3"></i> Back to Front
+                </button>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- Flip Badge Trigger Toolbar -->
-        <div class="mt-4 flex items-center gap-2">
-          <button id="flip-btn" onclick="toggleBadgeFlip()" onmouseenter="playSfx('hover')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-cyan-300 border border-slate-700 transition shadow-sm">
-            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-cyan-400"></i>
-            <span id="flip-label">Flip to Security Clearance</span>
-          </button>
-        </div>
-        <p class="text-[11px] font-mono text-slate-500 mt-1.5 text-center">
-          Drag card to swing lanyard · Click button to flip in 3D
+        <p class="text-[11px] font-mono text-slate-500 mt-4 text-center">
+          Drag card to swing · Click "Flip ID" to inspect security clearance
         </p>
       </div>
-
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section with Interactive Deep-Dive Drawer -->
     <section id="projects" class="space-y-6 mb-24">
       <div class="flex items-end justify-between border-b border-slate-800/80 pb-4">
         <div>
           <h2 class="text-xs font-mono uppercase tracking-wider text-blue-400">Featured Portfolio</h2>
           <p class="text-xl font-bold text-white mt-1">Key Projects & Research</p>
         </div>
-        <span class="text-xs font-mono text-slate-500">Click any card to inspect architecture</span>
+        <span class="text-xs font-mono text-slate-500">Click card for technical deep-dive</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
-        <!-- Project 1: QR School Management -->
-        <article onclick="openProjectModal('qr-system')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/70 transition flex flex-col justify-between group cursor-pointer relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="inline-flex items-center gap-1 text-[11px] font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
-              Deep Dive <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            </span>
-          </div>
-
+        <!-- Project 1 -->
+        <article onclick="openProjectDrawer('qr-school')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Academic Thesis</span>
               <span class="text-xs font-mono text-slate-500">2025</span>
             </div>
-            <h3 class="text-base font-semibold text-white group-hover:text-blue-300 transition">
-              QR-Code School Management System
-            </h3>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-blue-300 transition">
+                QR-Code School Management System
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
             <p class="text-xs text-slate-400 leading-relaxed">
-              Led the architectural design, implementation, and deployment of a QR-code-driven school management system to streamline institutional operations and attendance tracking.
+              Led the architectural design, implementation, and deployment of a QR-code-driven school management system to streamline institutional operations and tracking.
             </p>
           </div>
           <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
             <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">QR Code Integration</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Access Control</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Secure Backend</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">System Architecture</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Defensive Backend</span>
           </div>
         </article>
 
-        <!-- Project 2: Lost & Found AI -->
-        <article onclick="openProjectModal('lost-found')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/70 transition flex flex-col justify-between group cursor-pointer relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
-              Deep Dive <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            </span>
-          </div>
-
+        <!-- Project 2 -->
+        <article onclick="openProjectDrawer('lost-found')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">AI / Computer Vision</span>
               <span class="text-xs font-mono text-slate-500">2025</span>
             </div>
-            <h3 class="text-base font-semibold text-white group-hover:text-cyan-300 transition">
-              Campus Lost & Found Tracker with AI Image Matching
-            </h3>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-cyan-300 transition">
+                Campus Lost & Found Tracker with AI Image Matching
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
             <p class="text-xs text-slate-400 leading-relaxed">
               Automated campus recovery tool using computer vision and AI image matching to pair photos of lost items with database records, designing user-friendly workflows.
             </p>
@@ -427,22 +363,19 @@
           </div>
         </article>
 
-        <!-- Project 3: Mobile Banking Malware -->
-        <article onclick="openProjectModal('malware-audit')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/70 transition flex flex-col justify-between group cursor-pointer relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="inline-flex items-center gap-1 text-[11px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">
-              Deep Dive <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            </span>
-          </div>
-
+        <!-- Project 3 -->
+        <article onclick="openProjectDrawer('malware-eval')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Security Research</span>
               <span class="text-xs font-mono text-slate-500">2025</span>
             </div>
-            <h3 class="text-base font-semibold text-white group-hover:text-indigo-300 transition">
-              Smartphone Security vs Mobile Banking Malware
-            </h3>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-indigo-300 transition">
+                Smartphone Security vs Mobile Banking Malware
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
             <p class="text-xs text-slate-400 leading-relaxed">
               Conducted penetration testing evaluating SSL/TLS configuration vulnerabilities, local data storage flaws, overlay attacks, and accessibility service abuse.
             </p>
@@ -450,26 +383,23 @@
           <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
             <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Pen-Testing</span>
             <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">SSL/TLS Assessment</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Threat Modeling</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Malware Analysis</span>
           </div>
         </article>
 
-        <!-- Project 4: Forest Prototype -->
-        <article onclick="openProjectModal('forest-prototype')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900/70 transition flex flex-col justify-between group cursor-pointer relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-              Deep Dive <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            </span>
-          </div>
-
+        <!-- Project 4 -->
+        <article onclick="openProjectDrawer('forest-timer')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">UI & Interaction Prototype</span>
               <span class="text-xs font-mono text-slate-500">2025</span>
             </div>
-            <h3 class="text-base font-semibold text-white group-hover:text-emerald-300 transition">
-              Forest: Gamified Productivity & Focus Prototype
-            </h3>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-emerald-300 transition">
+                Forest: Gamified Productivity & Focus Prototype
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
             <p class="text-xs text-slate-400 leading-relaxed">
               Engineered a gamified productivity application combining behavioral motivation principles, timer sessions, and goal visualization to foster concentration.
             </p>
@@ -498,7 +428,7 @@
               <h3 class="text-base font-semibold text-white">Web Developer Intern</h3>
               <p class="text-xs text-blue-400 font-medium">RCDOK Kalookan Inc. (Website, Booking System Desktop & Mobile)</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 bg-slate-800 px-2.5 py-1 rounded-md self-start sm:self-auto border border-slate-700">
+            <span class="text-xs font-mono text-slate-400 bg-slate-800 px-2.5 py-1 rounded-md self-start sm:self-auto">
               Jan 2026 – Apr 2026
             </span>
           </div>
@@ -558,7 +488,7 @@
         </div>
       </div>
 
-      <!-- Complete All 12 Certifications with Interactive Filtering -->
+      <!-- All 12 Certifications with Interactive Filtering -->
       <div class="space-y-5">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-3 gap-3">
           <div>
@@ -576,7 +506,7 @@
 
         <div id="cert-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
           
-          <!-- Google Cybersecurity Suite (6 items) -->
+          <!-- Google Cybersecurity Suite -->
           <div onmouseenter="playSfx('hover')" class="cert-card cert-google p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex justify-between items-center hover:border-slate-700 transition">
             <div class="space-y-0.5">
               <span class="text-slate-200 font-medium block">Play It Safe: Manage Security Risks</span>
@@ -625,7 +555,7 @@
             <span class="text-blue-400 text-[11px] shrink-0 ml-2">Jul 2025</span>
           </div>
 
-          <!-- Packt Cloud Suite (3 items) -->
+          <!-- Packt Cloud Suite -->
           <div onmouseenter="playSfx('hover')" class="cert-card cert-cloud p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex justify-between items-center hover:border-slate-700 transition">
             <div class="space-y-0.5">
               <span class="text-slate-200 font-medium block">Cloud Architecture and Security</span>
@@ -650,7 +580,7 @@
             <span class="text-blue-400 text-[11px] shrink-0 ml-2">Mar 2026</span>
           </div>
 
-          <!-- AI & Programming (3 items) -->
+          <!-- AI & Programming -->
           <div onmouseenter="playSfx('hover')" class="cert-card cert-ai p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex justify-between items-center hover:border-slate-700 transition">
             <div class="space-y-0.5">
               <span class="text-slate-200 font-medium block">AI For Everyone</span>
@@ -684,113 +614,108 @@
     <footer class="pt-8 border-t border-slate-800 text-xs font-mono text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
       <span>Josef Rolando II P. Anza · 2026</span>
       <div class="flex items-center gap-6">
+        <a href="https://www.linkedin.com/in/jorol-anza-118665399/" target="_blank" rel="noopener noreferrer" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">LinkedIn</a>
+        <button onclick="openResumeModal()" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Resume PDF</button>
         <a href="mailto:jorolanza14@gmail.com" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Email</a>
         <a href="tel:+639564495858" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Phone</a>
       </div>
     </footer>
   </main>
 
-  <!-- ================= PROJECT DEEP DIVE MODAL / DRAWER ================= -->
-  <div id="project-drawer" class="fixed inset-0 z-50 hidden">
-    <!-- Backdrop with blur -->
-    <div id="drawer-backdrop" onclick="closeProjectModal()" class="drawer-backdrop absolute inset-0 bg-black/75 backdrop-blur-sm opacity-0"></div>
-
-    <!-- Sliding Right-Hand Drawer Panel -->
-    <div class="fixed inset-y-0 right-0 max-w-xl w-full flex pl-10 pointer-events-none">
-      <div id="drawer-panel" class="drawer-panel w-full bg-[#0d1322] border-l border-slate-800 shadow-2xl p-6 sm:p-8 overflow-y-auto pointer-events-auto transform translate-x-full flex flex-col justify-between">
-        
-        <div>
-          <!-- Drawer Header & Close Button -->
-          <div class="flex items-center justify-between pb-4 border-b border-slate-800/80 mb-6">
-            <span id="drawer-badge" class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">
-              Technical Specification
-            </span>
-            <button onclick="closeProjectModal()" onmouseenter="playSfx('hover')" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
-              <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-          </div>
-
-          <!-- Dynamic Title & Year -->
-          <div class="space-y-2 mb-6">
-            <div class="flex items-center gap-2 text-xs font-mono text-slate-500" id="drawer-meta">
-              <span>2025</span> · <span>Production Research</span>
-            </div>
-            <h2 id="drawer-title" class="text-2xl font-bold text-white tracking-tight leading-snug">
-              Project Title Placeholder
-            </h2>
-            <p id="drawer-desc" class="text-xs text-slate-300 leading-relaxed pt-1">
-              Project summary description goes here.
-            </p>
-          </div>
-
-          <!-- Tech Breakdown Columns -->
-          <div class="space-y-5 text-xs">
-            <!-- Problem Statement -->
-            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1.5">
-              <div class="flex items-center gap-1.5 text-rose-400 font-mono font-medium text-[11px]">
-                <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
-                <span>THE BOTTLENECK / PROBLEM STATEMENT</span>
-              </div>
-              <p id="drawer-problem" class="text-slate-300 leading-relaxed font-sans">
-                Problem statement placeholder.
-              </p>
-            </div>
-
-            <!-- Architectural Engineering Solution -->
-            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1.5">
-              <div class="flex items-center gap-1.5 text-cyan-400 font-mono font-medium text-[11px]">
-                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-                <span>ARCHITECTURAL SOLUTION</span>
-              </div>
-              <p id="drawer-solution" class="text-slate-300 leading-relaxed font-sans">
-                Solution architecture breakdown.
-              </p>
-            </div>
-
-            <!-- Defensive Cybersecurity Highlight -->
-            <div class="p-4 rounded-xl bg-blue-950/20 border border-blue-500/30 space-y-1.5">
-              <div class="flex items-center gap-1.5 text-blue-400 font-mono font-medium text-[11px]">
-                <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
-                <span>DEFENSIVE CYBERSECURITY & HARDENING</span>
-              </div>
-              <p id="drawer-security" class="text-slate-300 leading-relaxed font-sans">
-                Security mitigations, cryptographic defenses, and input validations used in the system.
-              </p>
-            </div>
-
-            <!-- Tech Stack Tags -->
-            <div class="space-y-2 pt-2">
-              <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">Technology Stack</span>
-              <div id="drawer-stack" class="flex flex-wrap gap-1.5">
-                <!-- Stack pills dynamically rendered -->
-              </div>
-            </div>
-          </div>
+  <!-- ======================================================== -->
+  <!-- MODAL: EMBEDDED RESUME VIEWER                           -->
+  <!-- ======================================================== -->
+  <div id="resume-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/80">
+        <div class="flex items-center gap-2">
+          <i data-lucide="file-text" class="w-4 h-4 text-blue-400"></i>
+          <span class="text-sm font-semibold text-white">Anza, Josef Rolando II P. — Resume</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">PDF Document</span>
         </div>
-
-        <!-- Action / Demo Footer -->
-        <div class="pt-8 mt-6 border-t border-slate-800/80 flex items-center justify-between gap-3">
-          <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl text-xs font-mono text-slate-400 hover:text-white transition">
-            Close Inspector
+        <div class="flex items-center gap-2">
+          <a href="resume.pdf" download="Josef_Anza_Resume.pdf" onclick="playSfx('success')" class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-blue-600 hover:bg-blue-500 text-white flex items-center gap-1.5 transition">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Download PDF
+          </a>
+          <button onclick="closeResumeModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+            <i data-lucide="x" class="w-4 h-4"></i>
           </button>
-          <div class="flex items-center gap-2">
-            <button onclick="copyEmail()" onmouseenter="playSfx('hover')" class="px-4 py-2 rounded-xl text-xs font-mono bg-blue-600 hover:bg-blue-500 text-white transition flex items-center gap-1.5">
-              <i data-lucide="mail" class="w-3.5 h-3.5"></i> Request Source Details
-            </button>
-          </div>
         </div>
+      </div>
 
+      <!-- Embedded PDF Viewer -->
+      <div class="flex-1 w-full bg-slate-950 relative">
+        <iframe src="resume.pdf" class="w-full h-full border-none" title="Josef Anza Resume"></iframe>
       </div>
     </div>
   </div>
 
+  <!-- ======================================================== -->
+  <!-- DRAWER: TECHNICAL PROJECT DEEP-DIVE INSPECTOR            -->
+  <!-- ======================================================== -->
+  <div id="project-drawer-backdrop" onclick="closeProjectDrawer()" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  
+  <aside id="project-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-lg bg-[#0d121f] border-l border-slate-800 p-6 shadow-2xl translate-x-full transition-transform duration-300 ease-out overflow-y-auto flex flex-col justify-between">
+    <div class="space-y-6">
+      
+      <!-- Drawer Top Bar -->
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+        <span id="drawer-tag" class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Thesis Project</span>
+        <button onclick="closeProjectDrawer()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Project Header -->
+      <div class="space-y-2">
+        <h3 id="drawer-title" class="text-xl font-bold text-white tracking-tight">QR-Code School Management System</h3>
+        <p id="drawer-subtitle" class="text-xs text-blue-400 font-mono">Mapúa University · Architectural Thesis</p>
+      </div>
+
+      <!-- Technical Deep Dive Content -->
+      <div class="space-y-4 text-xs leading-relaxed text-slate-300">
+        <div>
+          <h4 class="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold mb-1">Problem Statement</h4>
+          <p id="drawer-problem" class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80">Traditional manual paper logs and static badge check-ins suffered from operational bottlenecks, tampering risks, and lack of real-time attendance auditing.</p>
+        </div>
+
+        <div>
+          <h4 class="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold mb-1">Architecture & Solution</h4>
+          <p id="drawer-solution" class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80">Engineered an end-to-end management pipeline incorporating encrypted dynamic QR generation, secure administrative roles, and automated attendance synchronizations.</p>
+        </div>
+
+        <div>
+          <h4 class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-1 flex items-center gap-1.5">
+            <i data-lucide="shield" class="w-3.5 h-3.5"></i> Defensive Security Highlights
+          </h4>
+          <ul id="drawer-security" class="bg-slate-950 p-3.5 rounded-xl border border-emerald-500/20 space-y-2 text-slate-300 list-disc list-inside">
+            <li>Dynamic timestamped QR token generation to prevent badge spoofing or screen replay attacks.</li>
+            <li>Role-Based Access Control (RBAC) preventing unauthorized privilege escalation across campus roles.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between gap-3">
+      <a href="https://www.linkedin.com/in/jorol-anza-118665399/" target="_blank" rel="noopener noreferrer" onclick="playSfx('click')" class="px-4 py-2 rounded-xl text-xs font-mono font-medium bg-blue-600 hover:bg-blue-500 text-white flex items-center gap-1.5 transition">
+        <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> Discuss on LinkedIn
+      </a>
+      <button onclick="closeProjectDrawer()" class="px-3 py-2 rounded-xl text-xs font-mono text-slate-400 hover:text-white">
+        Close Inspector
+      </button>
+    </div>
+  </aside>
+
+  <!-- Interactive Web Audio FX & 3D Physics Script -->
   <script>
-    // Initialize Lucide icons
     lucide.createIcons();
 
-    // ==========================================================
-    // 1. SYNTHESIZED WEB AUDIO API FX ENGINE
-    // ==========================================================
+    // ==========================================
+    // SYNTHESIZED WEB AUDIO ENGINE
+    // ==========================================
     let audioCtx = null;
     let sfxEnabled = false;
 
@@ -837,7 +762,6 @@
         const now = ctx.currentTime;
 
         if (type === 'hover') {
-          // Delicate high-frequency microblip
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'sine';
@@ -850,7 +774,6 @@
           osc.start(now);
           osc.stop(now + 0.03);
         } else if (type === 'click') {
-          // Tactile mechanical switch click
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'triangle';
@@ -863,35 +786,30 @@
           osc.start(now);
           osc.stop(now + 0.05);
         } else if (type === 'flip') {
-          // Smooth whoosh / tactile card turn
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'sine';
           osc.frequency.setValueAtTime(320, now);
-          osc.frequency.exponentialRampToValueAtTime(640, now + 0.12);
+          osc.frequency.exponentialRampToValueAtTime(700, now + 0.08);
           gain.gain.setValueAtTime(0.06, now);
-          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start(now);
-          osc.stop(now + 0.12);
+          osc.stop(now + 0.08);
         } else if (type === 'success') {
-          // Two-tone digital chime
           const osc1 = ctx.createOscillator();
           const gain = ctx.createGain();
           gain.gain.setValueAtTime(0.06, now);
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-
           osc1.type = 'sine';
-          osc1.frequency.setValueAtTime(523.25, now); // C5
-          osc1.frequency.setValueAtTime(659.25, now + 0.08); // E5
-
+          osc1.frequency.setValueAtTime(523.25, now);
+          osc1.frequency.setValueAtTime(659.25, now + 0.08);
           osc1.connect(gain);
           gain.connect(ctx.destination);
           osc1.start(now);
           osc1.stop(now + 0.2);
         } else if (type === 'spring') {
-          // Lanyard elasticity snap
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'sine';
@@ -904,37 +822,27 @@
           osc.start(now);
           osc.stop(now + 0.12);
         }
-      } catch (e) {
-        // Safe failover
-      }
+      } catch (e) {}
     }
 
-    // ==========================================================
-    // 2. 3D BADGE PHYSICS & FLIP TOGGLE
-    // ==========================================================
+    // ==========================================
+    // 3D LANYARD & BADGE PHYSICS + FLIP
+    // ==========================================
     const card = document.getElementById('interactive-card');
-    const badgeFlipperCore = document.getElementById('badge-flipper-core');
     const glare = document.getElementById('card-glare');
-    const flipLabel = document.getElementById('flip-label');
-
     let isFlipped = false;
     let isDragging = false;
     let startX = 0, startY = 0;
     let currentX = 0, currentY = 0;
 
-    function toggleBadgeFlip() {
+    function flipBadge(event) {
+      if (event) event.stopPropagation();
       isFlipped = !isFlipped;
       playSfx('flip');
-      if (isFlipped) {
-        badgeFlipperCore.classList.add('flipped');
-        flipLabel.innerText = "Flip to Front ID Portrait";
-      } else {
-        badgeFlipperCore.classList.remove('flipped');
-        flipLabel.innerText = "Flip to Security Clearance";
-      }
+      card.classList.remove('swaying');
+      card.style.transform = `perspective(1200px) rotateY(${isFlipped ? 180 : 0}deg)`;
     }
 
-    // Interactive 3D tilt on mouse movements
     card.addEventListener('mousemove', (e) => {
       if (isDragging) return;
       const rect = card.getBoundingClientRect();
@@ -944,25 +852,25 @@
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
+      const tiltBase = isFlipped ? 180 : 0;
       const rotateX = ((y - centerY) / centerY) * -12;
-      const rotateY = ((x - centerX) / centerX) * 12;
+      const rotateY = tiltBase + (((x - centerX) / centerX) * 12);
 
       card.classList.remove('swaying');
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       
       glare.style.opacity = '1';
-      glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 75%)`;
+      glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 75%)`;
     });
 
     card.addEventListener('mouseleave', () => {
       if (!isDragging) {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(${isFlipped ? 180 : 0}deg)`;
         card.classList.add('swaying');
         glare.style.opacity = '0';
       }
     });
 
-    // Drag-and-release elasticity simulation
     card.addEventListener('mousedown', (e) => {
       isDragging = true;
       card.classList.remove('swaying');
@@ -980,8 +888,9 @@
       const clampedX = Math.max(-maxDrag, Math.min(maxDrag, currentX));
       const clampedY = Math.max(-20, Math.min(maxDrag, currentY));
       const tilt = clampedX * 0.4;
+      const baseFlip = isFlipped ? 180 : 0;
 
-      card.style.transform = `translate(${clampedX}px, ${clampedY}px) rotate(${tilt}deg)`;
+      card.style.transform = `translate(${clampedX}px, ${clampedY}px) rotateY(${baseFlip}deg) rotateZ(${tilt}deg)`;
     });
 
     window.addEventListener('mouseup', () => {
@@ -990,7 +899,7 @@
         currentX = 0;
         currentY = 0;
         card.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        card.style.transform = 'translate(0px, 0px) rotate(0deg)';
+        card.style.transform = `translate(0px, 0px) rotateY(${isFlipped ? 180 : 0}deg) rotateZ(0deg)`;
         playSfx('spring');
         setTimeout(() => {
           card.style.transition = '';
@@ -999,110 +908,117 @@
       }
     });
 
-    // ==========================================================
-    // 3. PROJECT DEEP DIVE DRAWER DATA & INTERACTION
-    // ==========================================================
-    const projectData = {
-      'qr-system': {
-        badge: 'Academic Thesis & Implementation',
-        meta: '2025 · Mapúa University Final Defense',
+    // ==========================================
+    // PROJECT DRAWER DATA & LOGIC
+    // ==========================================
+    const projectDetails = {
+      'qr-school': {
+        tag: 'Academic Thesis · 2025',
         title: 'QR-Code School Management System',
-        desc: 'An automated institution management and physical tracking gateway engineered to eliminate bottlenecks in manual student record verification.',
-        problem: 'Traditional paper logs and manual attendance tracking caused long queue congestions at school checkpoints and suffered from unauthorized proxy attendance and high administrative overhead.',
-        solution: 'Built an integrated client and administrator portal with cryptographic QR token verification. Scanning instantaneously registers student identities and logs timestamped check-ins to a centralized relational database.',
-        security: 'Applied time-expiring HMAC token encoding to generated QR codes to eliminate static replay attacks and duplicate screenshots. Implemented server-side rate-limiting and prepared SQL statements to defend database endpoints.',
-        stack: ['QR Tokenization', 'Defensive Backend', 'Role-Based Access Control (RBAC)', 'Relational Database', 'Tailwind CSS']
+        subtitle: 'Mapúa University Makati · System Architecture',
+        problem: 'Institutional tracking and paper records incurred severe administrative delays, loss of attendance logs, and vulnerability to fraudulent check-ins.',
+        solution: 'Built a full-lifecycle institutional management system integrating dynamic QR verification, encrypted attendance logs, and administrative portals.',
+        security: [
+          'Implemented cryptographic hash verification on QR payloads to prevent credential duplication and spoofing.',
+          'Enforced role-based access controls (RBAC) separating administrative, staff, and student viewing privileges.'
+        ]
       },
       'lost-found': {
-        badge: 'AI & Computer Vision Application',
-        meta: '2025 · Campus AI Solution',
+        tag: 'Computer Vision / AI · 2025',
         title: 'Campus Lost & Found Tracker with AI Image Matching',
-        desc: 'An automated computer vision recovery tool that matches uploaded photos of lost belongings with reported catalog images on campus.',
-        problem: 'Students and administration struggled to correlate fragmented physical lost-and-found items with subjective, inconsistent text descriptions provided by owners.',
-        solution: 'Developed an automated UI workflow that extracts image feature vectors upon photo upload, computing similarity confidence scores against registered lost item records to notify matching parties automatically.',
-        security: 'Constructed client and server-side file sanitization pipelines to mitigate malicious image polyglot files and EXIF data leakage. Integrated sanitized form handling to block cross-site scripting (XSS) across public item feeds.',
-        stack: ['Computer Vision / Image Matching', 'Frontend Architecture', 'Secure File Upload Handlers', 'Metadata Stripping', 'REST APIs']
+        subtitle: 'Automated Recovery Pipeline & UI Workflows',
+        problem: 'Students and campus security spent days sorting through disorganized lost physical inventory without an efficient indexing mechanism.',
+        solution: 'Developed an automated recovery tool incorporating image feature vectors to calculate visual similarity between lost item reports and found items.',
+        security: [
+          'Sanitized and stripped image EXIF GPS/camera metadata on upload to protect student privacy.',
+          'Client-side image filetype and payload validation preventing unauthorized script execution via image headers.'
+        ]
       },
-      'malware-audit': {
-        badge: 'Offensive & Defensive Security Audit',
-        meta: '2025 · Penetration Testing Research',
+      'malware-eval': {
+        tag: 'Security Research · 2025',
         title: 'Smartphone Security vs Mobile Banking Malware',
-        desc: 'Comprehensive security evaluation and pen-testing audit exposing real-world attack vectors employed by mobile banking trojans against mobile OS architectures.',
-        problem: 'Modern banking applications face evolving malware strains that exploit excessive OS accessibility permissions, screen overlay injections, and poorly configured transmission channels.',
-        solution: 'Engineered a sandboxed test environment to audit vulnerabilities across SSL/TLS pinning failures, insecure local caching (SharedPreferences), and accessibility service hijacking mechanisms.',
-        security: 'Outlined mitigation guidelines: enforcing certificate pinning, implementing runtime integrity checks to prevent dynamic hook injections (e.g. Frida), and configuring secure window layout flags to invalidate clickjacking overlays.',
-        stack: ['Penetration Testing', 'SSL/TLS Pinning Audits', 'Android Security Sandbox', 'Overlay Attack Mitigation', 'Network Traffic Analysis']
+        subtitle: 'Offensive Penetration Testing & Vulnerability Assessment',
+        problem: 'Android banking apps remain frequent targets of overlay attacks, accessibility service hijacks, and transport layer interception.',
+        solution: 'Conducted rigorous controlled laboratory penetration tests analyzing real-world attack vectors against banking apps and device sandboxes.',
+        security: [
+          'Evaluated weak SSL/TLS cipher suites and bypassed basic certificate pinning using Frida hooks to demonstrate vulnerability.',
+          'Audited insecure Android shared preference files exposing stored auth tokens and proposed defensive encryption patterns.'
+        ]
       },
-      'forest-prototype': {
-        badge: 'UI / UX Interaction Prototype',
-        meta: '2025 · Behavioral Productivity Design',
+      'forest-timer': {
+        tag: 'Interaction Prototype · 2025',
         title: 'Forest: Gamified Productivity & Focus Prototype',
-        desc: 'A gamified concentration interface combining psychological behavioral motivation principles, timer sessions, and goal tracking.',
-        problem: 'Conventional timer apps fail to sustain long-term engagement due to dry interfaces, lacking immediate positive behavioral feedback loops to retain user focus.',
-        solution: 'Designed an interactive frontend interface featuring procedural growth animations, tactile audio cues, and visual session penalties if focus states are interrupted.',
-        security: 'Built with strict zero-eval execution policies, accessible modal states, local client persistence schemas, and resilient state machines guaranteeing persistent timer integrity across background tab cycles.',
-        stack: ['Interactive UI Engineering', 'CSS Keyframe Animation', 'Web Audio API Cues', 'State Machine Logic', 'Accessible DOM Standards']
+        subtitle: 'Behavioral UX & Frontend Interaction Design',
+        problem: 'Focus timers often feel repetitive and disengaging, resulting in high user drop-off and abandoned work sessions.',
+        solution: 'Built an interactive focus tool combining gamified SVG reward feedback, concentration timers, and responsive dashboard stats.',
+        security: [
+          'Zero external tracking dependencies and zero client-side eval execution for pristine performance and safety.',
+          'Strict local state persistence using sandboxed storage schemas.'
+        ]
       }
     };
 
-    const projectDrawer = document.getElementById('project-drawer');
-    const drawerBackdrop = document.getElementById('drawer-backdrop');
-    const drawerPanel = document.getElementById('drawer-panel');
-
-    function openProjectModal(key) {
-      const data = projectData[key];
+    function openProjectDrawer(key) {
+      playSfx('click');
+      const data = projectDetails[key];
       if (!data) return;
 
-      playSfx('click');
-
-      document.getElementById('drawer-badge').innerText = data.badge;
-      document.getElementById('drawer-meta').innerText = data.meta;
+      document.getElementById('drawer-tag').innerText = data.tag;
       document.getElementById('drawer-title').innerText = data.title;
-      document.getElementById('drawer-desc').innerText = data.desc;
+      document.getElementById('drawer-subtitle').innerText = data.subtitle;
       document.getElementById('drawer-problem').innerText = data.problem;
       document.getElementById('drawer-solution').innerText = data.solution;
-      document.getElementById('drawer-security').innerText = data.security;
 
-      const stackContainer = document.getElementById('drawer-stack');
-      stackContainer.innerHTML = '';
-      data.stack.forEach(tech => {
-        const pill = document.createElement('span');
-        pill.className = 'px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px] border border-slate-700/60';
-        pill.innerText = tech;
-        stackContainer.appendChild(pill);
+      const secList = document.getElementById('drawer-security');
+      secList.innerHTML = '';
+      data.security.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = item;
+        secList.appendChild(li);
       });
 
-      // Show drawer with transition
-      projectDrawer.classList.remove('hidden');
-      setTimeout(() => {
-        drawerBackdrop.classList.remove('opacity-0');
-        drawerBackdrop.classList.add('opacity-100');
-        drawerPanel.classList.remove('translate-x-full');
-        drawerPanel.classList.add('translate-x-0');
-      }, 10);
+      const drawer = document.getElementById('project-drawer');
+      const backdrop = document.getElementById('project-drawer-backdrop');
+
+      backdrop.classList.remove('pointer-events-none', 'opacity-0');
+      backdrop.classList.add('opacity-100');
+      drawer.classList.remove('translate-x-full');
+      document.body.classList.add('overflow-hidden');
     }
 
-    function closeProjectModal() {
+    function closeProjectDrawer() {
       playSfx('click');
-      drawerBackdrop.classList.remove('opacity-100');
-      drawerBackdrop.classList.add('opacity-0');
-      drawerPanel.classList.remove('translate-x-0');
-      drawerPanel.classList.add('translate-x-full');
-      setTimeout(() => {
-        projectDrawer.classList.add('hidden');
-      }, 350);
+      const drawer = document.getElementById('project-drawer');
+      const backdrop = document.getElementById('project-drawer-backdrop');
+
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      backdrop.classList.remove('opacity-100');
+      drawer.classList.add('translate-x-full');
+      document.body.classList.remove('overflow-hidden');
     }
 
-    // Keyboard ESC listener for modal closure
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !projectDrawer.classList.contains('hidden')) {
-        closeProjectModal();
-      }
-    });
+    // ==========================================
+    // RESUME MODAL VIEWER LOGIC
+    // ==========================================
+    function openResumeModal() {
+      playSfx('click');
+      const modal = document.getElementById('resume-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    }
 
-    // ==========================================================
-    // 4. CERTIFICATIONS CATEGORY FILTER
-    // ==========================================================
+    function closeResumeModal() {
+      playSfx('click');
+      const modal = document.getElementById('resume-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // ==========================================
+    // CREDENTIALS FILTER & EMAIL COPY
+    // ==========================================
     function filterCerts(category, element) {
       playSfx('click');
       const tabs = document.querySelectorAll('.cert-tab');
@@ -1125,9 +1041,6 @@
       });
     }
 
-    // ==========================================================
-    // 5. ONE-CLICK EMAIL COPY
-    // ==========================================================
     function copyEmail() {
       navigator.clipboard.writeText('jorolanza14@gmail.com');
       playSfx('success');
