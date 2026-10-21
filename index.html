@@ -53,6 +53,22 @@
       mix-blend-mode: overlay;
     }
     ::selection { background-color: #3b82f6; color: #ffffff; }
+
+    /* Blinking Terminal Cursor */
+    @keyframes blink {
+      0%, 45% { opacity: 1; }
+      50%, 95% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .cursor-caret {
+      display: inline-block;
+      width: 4px;
+      border-radius: 9999px;
+      background-color: #3b82f6;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+      animation: blink 1s step-start infinite;
+      vertical-align: baseline;
+    }
   </style>
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen selection:bg-blue-600 selection:text-white">
@@ -110,8 +126,8 @@
           BSIT Graduate · Cybersecurity Specialization
         </div>
 
-        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
-          Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400">Josef Rolando Anza</span>
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight min-h-[3.75rem] sm:min-h-[4.5rem]">
+          Hi, I'm <span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400"></span><span id="hero-cursor" class="cursor-caret h-8 sm:h-11 ml-1"></span>
         </h1>
 
         <p class="text-base text-slate-300 leading-relaxed">
@@ -268,12 +284,12 @@
       </div>
     </section>
 
-    <!-- CAPABILITIES & TECH STACK SECTION -->
+    <!-- CAPABILITIES & TECH STACK SECTION WITH TYPEWRITER & BLINKING CURSOR -->
     <section id="capabilities" class="space-y-8 mb-24">
       <div class="space-y-3">
         <span class="text-xs font-mono uppercase tracking-widest text-slate-500 block">MY CAPABILITIES</span>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white flex items-center gap-3">
-          What I Can Do <span class="w-1.5 h-8 bg-blue-500 rounded-full inline-block"></span>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white flex items-center min-h-[2.75rem]">
+          <span id="capabilities-typewriter"></span><span id="capabilities-cursor" class="cursor-caret h-7 sm:h-9 ml-2"></span>
         </h2>
         <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
           I combine technical expertise in web development, system architecture, creative styling, and analytical tools to engineer reliable, secure, and intuitive digital workflows.
@@ -503,7 +519,7 @@
       </div>
     </section>
 
-    <!-- THESIS SHOWCASE -->
+    <!-- THESIS SHOWCASE (MOVED BELOW KEY PROJECTS) -->
     <section id="thesis-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
@@ -616,7 +632,7 @@
       </div>
     </section>
 
-    <!-- FOREST SHOWCASE -->
+    <!-- FOREST SHOWCASE (MOVED BELOW KEY PROJECTS) -->
     <section id="forest-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
@@ -1040,6 +1056,18 @@
           gain.connect(ctx.destination);
           osc.start(now);
           osc.stop(now + 0.03);
+        } else if (type === 'type') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.exponentialRampToValueAtTime(300, now + 0.015);
+          gain.gain.setValueAtTime(0.015, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.015);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.015);
         } else if (type === 'click') {
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
@@ -1092,6 +1120,51 @@
       } catch (e) {}
     }
 
+    // ==========================================
+    // TYPEWRITER ENGINE WITH PERSISTENT CURSORS
+    // ==========================================
+    function runTypewriter(elementId, text, speed, onComplete) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.textContent = '';
+      let i = 0;
+      function tick() {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+          if (i % 2 === 0) playSfx('type');
+          setTimeout(tick, speed);
+        } else if (onComplete) {
+          onComplete();
+        }
+      }
+      tick();
+    }
+
+    // 1. Hero typewriter on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        runTypewriter('hero-typewriter', 'Josef Rolando Anza', 85);
+      }, 300);
+    });
+
+    // 2. Capabilities typewriter on scroll into view
+    let capabilitiesTyped = false;
+    const capabilitiesObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !capabilitiesTyped) {
+          capabilitiesTyped = true;
+          runTypewriter('capabilities-typewriter', 'What I Can Do', 90);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    const capSection = document.getElementById('capabilities');
+    if (capSection) capabilitiesObserver.observe(capSection);
+
+    // ==========================================
+    // THESIS SCREENSHOT SHOWCASE ENGINE (1-8.png)
+    // ==========================================
     const screens = [
       {
         badge: 'auth-login.view',
@@ -1207,6 +1280,9 @@
       });
     }
 
+    // ==========================================
+    // FOREST APP SHOWCASE ENGINE (forest-1 to 6)
+    // ==========================================
     const forestScreens = [
       {
         badge: 'SPLASH & WELCOME FLOW',
@@ -1302,6 +1378,9 @@
       });
     }
 
+    // ==========================================
+    // 3D LANYARD & BADGE PHYSICS + FLIP
+    // ==========================================
     const card = document.getElementById('interactive-card');
     const glare = document.getElementById('card-glare');
     let isFlipped = false;
@@ -1400,6 +1479,9 @@
       }
     });
 
+    // ==========================================
+    // PROJECT DRAWER DATA & LOGIC
+    // ==========================================
     const projectDetails = {
       'qr-school': {
         tag: 'Academic Thesis · 2025',
