@@ -71,6 +71,7 @@
 
       <nav class="hidden md:flex items-center gap-6 text-xs font-mono text-slate-400">
         <a href="#about" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">About</a>
+        <a href="#capabilities" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Capabilities</a>
         <a href="#projects" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Projects</a>
         <a href="#thesis-spotlight" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Thesis</a>
         <a href="#forest-spotlight" onmouseenter="playSfx('hover')" class="hover:text-emerald-400 transition">Forest UI</a>
@@ -267,6 +268,136 @@
       </div>
     </section>
 
+    <!-- CAPABILITIES & TECH STACK SECTION -->
+    <section id="capabilities" class="space-y-8 mb-24">
+      <div class="space-y-3">
+        <span class="text-xs font-mono uppercase tracking-widest text-slate-500 block">MY CAPABILITIES</span>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white flex items-center gap-3">
+          What I Can Do <span class="w-1.5 h-8 bg-blue-500 rounded-full inline-block"></span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
+          I combine technical expertise in web development, system architecture, creative styling, and analytical tools to engineer reliable, secure, and intuitive digital workflows.
+        </p>
+      </div>
+
+      <!-- Tech Stack Icons Grid -->
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3.5 sm:gap-4 pt-2">
+        
+        <!-- HTML5 -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-orange-500/50 hover:bg-slate-900/80 transition-all duration-200">
+          <svg class="w-8 h-8 text-orange-500 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm6.3 5.4l-.4 4.3h-5.9v2.2h5.7l-.6 6.3-5.1 1.4-5.1-1.4-.3-3.6h2.2l.2 1.9 3 .8 3-.8.3-3.1H8.1l-.3-3.8h10.2l.3-4.2H7.7V7.4h10.6z"/>
+          </svg>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">HTML5</span>
+        </div>
+
+        <!-- CSS3 -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/80 transition-all duration-200">
+          <svg class="w-8 h-8 text-blue-500 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm6.3 5.4l-.4 4.3h-5.9v2.2h5.7l-.6 6.3-5.1 1.4-5.1-1.4-.3-3.6h2.2l.2 1.9 3 .8 3-.8.3-3.1H8.1l-.3-3.8h10.2l.3-4.2H7.7V7.4h10.6z"/>
+          </svg>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">CSS3</span>
+        </div>
+
+        <!-- JavaScript -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-yellow-400/50 hover:bg-slate-900/80 transition-all duration-200">
+          <div class="w-8 h-8 bg-yellow-400 rounded text-slate-950 font-bold flex items-center justify-center text-xs group-hover:scale-110 transition-transform duration-200">
+            JS
+          </div>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">JavaScript</span>
+        </div>
+
+        <!-- PHP -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-indigo-400/50 hover:bg-slate-900/80 transition-all duration-200">
+          <div class="px-2 py-0.5 rounded-full bg-indigo-900/60 border border-indigo-400/40 text-indigo-300 font-bold text-xs font-mono group-hover:scale-110 transition-transform duration-200">
+            php
+          </div>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">PHP</span>
+        </div>
+
+        <!-- MySQL -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/80 transition-all duration-200">
+          <i data-lucide="database" class="w-8 h-8 text-cyan-400 group-hover:scale-110 transition-transform duration-200"></i>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">MySQL</span>
+        </div>
+
+        <!-- Tailwind CSS -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-teal-400/50 hover:bg-slate-900/80 transition-all duration-200">
+          <svg class="w-8 h-8 text-teal-400 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+          </svg>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">Tailwind</span>
+        </div>
+
+        <!-- Vite -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-purple-400/50 hover:bg-slate-900/80 transition-all duration-200">
+          <i data-lucide="zap" class="w-8 h-8 text-purple-400 group-hover:scale-110 transition-transform duration-200"></i>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">Vite</span>
+        </div>
+
+        <!-- REST API -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-amber-400/50 hover:bg-slate-900/80 transition-all duration-200">
+          <i data-lucide="network" class="w-8 h-8 text-amber-400 group-hover:scale-110 transition-transform duration-200"></i>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">REST API</span>
+        </div>
+
+        <!-- Git -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-rose-500/50 hover:bg-slate-900/80 transition-all duration-200">
+          <i data-lucide="git-branch" class="w-8 h-8 text-rose-500 group-hover:scale-110 transition-transform duration-200"></i>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">Git</span>
+        </div>
+
+        <!-- GitHub -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-slate-400/50 hover:bg-slate-900/80 transition-all duration-200">
+          <i data-lucide="github" class="w-8 h-8 text-slate-300 group-hover:scale-110 transition-transform duration-200"></i>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">GitHub</span>
+        </div>
+
+        <!-- VS Code -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-400/50 hover:bg-slate-900/80 transition-all duration-200">
+          <i data-lucide="code-2" class="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform duration-200"></i>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">VS Code</span>
+        </div>
+
+        <!-- Lightroom -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-300/50 hover:bg-slate-900/80 transition-all duration-200">
+          <div class="w-8 h-8 rounded border border-cyan-400/60 bg-cyan-950/40 text-cyan-300 font-bold flex items-center justify-center text-xs font-mono group-hover:scale-110 transition-transform duration-200">
+            Lr
+          </div>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">Lightroom</span>
+        </div>
+
+        <!-- Microsoft Word -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-600/50 hover:bg-slate-900/80 transition-all duration-200">
+          <div class="w-8 h-8 rounded bg-blue-700 text-white font-bold flex items-center justify-center text-xs font-mono group-hover:scale-110 transition-transform duration-200">
+            W
+          </div>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">MS Word</span>
+        </div>
+
+        <!-- Microsoft Excel -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-200">
+          <div class="w-8 h-8 rounded bg-emerald-600 text-white font-bold flex items-center justify-center text-xs font-mono group-hover:scale-110 transition-transform duration-200">
+            X
+          </div>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">MS Excel</span>
+        </div>
+
+        <!-- C++ -->
+        <div onmouseenter="playSfx('hover')" class="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/80 transition-all duration-200">
+          <div class="px-2 py-0.5 rounded bg-blue-900/50 border border-blue-400/50 text-blue-300 font-bold text-xs font-mono group-hover:scale-110 transition-transform duration-200">
+            C++
+          </div>
+          <span class="mt-2 text-[11px] font-mono text-slate-400 group-hover:text-slate-200">C++</span>
+        </div>
+
+      </div>
+
+      <p class="text-xs font-mono text-slate-500 pt-1">
+        * Hover over any technology or tool to highlight
+      </p>
+    </section>
+
     <!-- KEY PROJECTS & RESEARCH -->
     <section id="projects" class="space-y-6 mb-24">
       <div class="flex items-end justify-between border-b border-slate-800/80 pb-4">
@@ -372,7 +503,7 @@
       </div>
     </section>
 
-    <!-- THESIS SHOWCASE (MOVED BELOW KEY PROJECTS) -->
+    <!-- THESIS SHOWCASE -->
     <section id="thesis-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
@@ -485,13 +616,13 @@
       </div>
     </section>
 
-    <!-- FOREST SHOWCASE (MOVED BELOW KEY PROJECTS) -->
+    <!-- FOREST SHOWCASE -->
     <section id="forest-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
           <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono mb-2">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-             Mobile Interaction & GUI Prototype
+            ITS142L · Mobile Interaction & GUI Prototype
           </div>
           <h2 class="text-2xl font-bold text-white tracking-tight">Forest: Gamified Productivity Mobile App</h2>
           <p class="text-xs text-slate-400 mt-1">Cross-Platform UI/UX, Behavioral Motivation Principles, & Focus Tree Mechanics</p>
