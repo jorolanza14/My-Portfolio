@@ -84,6 +84,7 @@
       <nav class="hidden md:flex items-center gap-6 text-xs font-mono text-slate-400">
         <a href="#about" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">About</a>
         <a href="#thesis-spotlight" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Thesis</a>
+        <a href="#forest-spotlight" onmouseenter="playSfx('hover')" class="hover:text-emerald-400 transition">Forest UI</a>
         <a href="#projects" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Projects</a>
         <a href="#experience" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Experience</a>
         <a href="#credentials" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Credentials</a>
@@ -308,7 +309,6 @@
           <p class="text-xs text-slate-400 mt-1">Full-Lifecycle Secure Campus Access, Dynamic Attendance Tokens, & Asset Recovery</p>
         </div>
         <div class="flex items-center gap-3">
-          <!-- Live App Link Button -->
           <a href="https://qr-school-system-7fp2.vercel.app/login" target="_blank" rel="noopener noreferrer" onmouseenter="playSfx('hover')" onclick="playSfx('click')" class="px-4 py-2 rounded-xl text-xs font-mono font-medium bg-blue-600 hover:bg-blue-500 text-white flex items-center gap-2 transition shadow-lg shadow-blue-500/20">
             <i data-lucide="globe" class="w-3.5 h-3.5"></i>
             <span>Launch Live App</span>
@@ -322,9 +322,7 @@
         
         <!-- Left: Interactive Screenshot Showcase Screen -->
         <div class="lg:col-span-8 space-y-4">
-          <!-- Mock Browser Shell Frame -->
           <div class="rounded-2xl border border-slate-700/80 bg-slate-950 overflow-hidden shadow-2xl">
-            <!-- Window Titlebar -->
             <div class="bg-slate-900 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs font-mono">
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
@@ -335,7 +333,6 @@
               <span id="screen-counter" class="text-[10px] text-blue-400">Screenshot 1 of 8</span>
             </div>
 
-            <!-- Active Screenshot Display -->
             <div class="relative aspect-video w-full bg-slate-950 flex items-center justify-center overflow-hidden group">
               <img id="active-screen-img" src="1.png" alt="QR School System Screen" class="w-full h-full object-contain bg-[#0f1422] transition duration-300" />
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2 pointer-events-none">
@@ -344,7 +341,7 @@
             </div>
           </div>
 
-          <!-- 8 Screenshot Selector Tabs (2 Rows of 4) -->
+          <!-- 8 Screenshot Selector Tabs -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
             <button onclick="setScreen(0)" onmouseenter="playSfx('hover')" class="screen-tab active p-2 rounded-xl border border-blue-500 bg-blue-500/10 text-white text-left transition flex flex-col justify-between">
               <span class="font-semibold block text-[11px]">1. Login Portal</span>
@@ -392,7 +389,6 @@
               </p>
             </div>
 
-            <!-- Defensive Highlights -->
             <div>
               <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold flex items-center gap-1.5 mb-2">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Defensive Highlights
@@ -410,7 +406,6 @@
             </div>
           </div>
 
-          <!-- Bottom Actions -->
           <div class="pt-4 border-t border-slate-800/80 space-y-2">
             <a href="https://qr-school-system-7fp2.vercel.app/login" target="_blank" rel="noopener noreferrer" onclick="playSfx('click')" class="w-full py-2.5 rounded-xl text-xs font-mono font-medium bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center gap-2 transition shadow-md shadow-blue-500/20">
               <i data-lucide="play" class="w-3.5 h-3.5"></i> Open Live App
@@ -418,6 +413,115 @@
             <button onclick="openProjectDrawer('qr-school')" onmouseenter="playSfx('hover')" class="w-full py-2 rounded-xl text-xs font-mono text-slate-400 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-700 transition flex items-center justify-center gap-2">
               <i data-lucide="info" class="w-3.5 h-3.5"></i> Inspect Architectural Specs
             </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- FOREST GAMIFIED PRODUCTIVITY APP SPOTLIGHT (MOBILE GUI)  -->
+    <!-- ======================================================== -->
+    <section id="forest-spotlight" class="space-y-6 mb-24">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
+        <div>
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            ITS142L · Mobile Interaction & GUI Prototype
+          </div>
+          <h2 class="text-2xl font-bold text-white tracking-tight">Forest: Gamified Productivity Mobile App</h2>
+          <p class="text-xs text-slate-400 mt-1">Cross-Platform UI/UX, Behavioral Motivation Principles, & Focus Tree Mechanics</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="openProjectDrawer('forest-timer')" onmouseenter="playSfx('hover')" class="px-4 py-2 rounded-xl text-xs font-mono font-medium bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-2 transition shadow-lg shadow-emerald-500/20">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+            <span>Inspect Mobile Architecture</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-slate-900/40 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-md items-center">
+        
+        <!-- Left: Realistic Mobile Phone Mockup Frame -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-64 sm:w-72 aspect-[9/19] rounded-[2.5rem] bg-slate-950 p-3 shadow-2xl border-4 border-slate-800 ring-1 ring-emerald-500/30">
+            <!-- Mobile Camera Notch & Speaker Grill -->
+            <div class="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-900 rounded-full z-20 flex items-center justify-center">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-950 mr-2"></span>
+              <span class="w-8 h-1 bg-slate-800 rounded-full"></span>
+            </div>
+
+            <!-- Mobile Screen Display Area -->
+            <div class="w-full h-full rounded-[2rem] overflow-hidden bg-slate-900 relative flex items-center justify-center">
+              <img id="active-forest-img" src="forest-1.png" alt="Forest Mobile UI Screen" class="w-full h-full object-cover object-top transition duration-300" />
+            </div>
+
+            <!-- Mobile Home Bar Indicator -->
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-slate-700 rounded-full z-20"></div>
+          </div>
+        </div>
+
+        <!-- Right: Forest Interactive Flow Selector & Technical Deep Dive -->
+        <div class="lg:col-span-7 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold" id="forest-screen-badge">SPLASH & WELCOME FLOW</span>
+                <span class="text-[10px] font-mono text-slate-500" id="forest-counter">Screen 1 of 6</span>
+              </div>
+              <h3 id="forest-screen-title" class="text-xl font-bold text-white mt-1">Welcome & Onboarding Portal</h3>
+              <p id="forest-screen-desc" class="text-xs text-slate-300 leading-relaxed mt-2 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                Entry point introducing users to the focus philosophy. Users discover vocabulary, set daily focus commitments, and route to authenticated user sessions.
+              </p>
+            </div>
+
+            <!-- UI/UX & Gamification Mechanics -->
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold flex items-center gap-1.5 mb-2">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Interaction & Gamification Highlights
+              </span>
+              <ul id="forest-screen-features" class="space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/80">
+                  <span class="text-emerald-400 shrink-0">🌱</span>
+                  <span>Countdown-to-tree growth visual incentive reinforcing sustained attention spans.</span>
+                </li>
+                <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/80">
+                  <span class="text-emerald-400 shrink-0">🚫</span>
+                  <span>Distraction penalty: switching out of the app during focus countdown wilts the virtual tree.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 6 Mobile Flow Tabs -->
+          <div class="space-y-2 pt-2">
+            <span class="text-[10px] font-mono uppercase text-slate-500 block">Select Mobile Screen Workflow:</span>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-mono">
+              <button onclick="setForestScreen(0)" onmouseenter="playSfx('hover')" class="forest-tab active p-2.5 rounded-xl border border-emerald-500 bg-emerald-500/10 text-white text-left transition flex flex-col justify-between">
+                <span class="font-semibold block text-[11px]">1. Splash</span>
+                <span class="text-[9px] text-slate-400">forest-1.png</span>
+              </button>
+              <button onclick="setForestScreen(1)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
+                <span class="font-semibold block text-[11px]">2. Auth & OTP</span>
+                <span class="text-[9px] text-slate-400">forest-2.png</span>
+              </button>
+              <button onclick="setForestScreen(2)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
+                <span class="font-semibold block text-[11px]">3. Home Forest</span>
+                <span class="text-[9px] text-slate-400">forest-3.png</span>
+              </button>
+              <button onclick="setForestScreen(3)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
+                <span class="font-semibold block text-[11px]">4. Focus Tasks</span>
+                <span class="text-[9px] text-slate-400">forest-4.png</span>
+              </button>
+              <button onclick="setForestScreen(4)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
+                <span class="font-semibold block text-[11px]">5. Streaks</span>
+                <span class="text-[9px] text-slate-400">forest-5.png</span>
+              </button>
+              <button onclick="setForestScreen(5)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
+                <span class="font-semibold block text-[11px]">6. Account</span>
+                <span class="text-[9px] text-slate-400">forest-6.png</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -1058,6 +1162,104 @@
     }
 
     // ==========================================
+    // FOREST APP SHOWCASE ENGINE (forest-1 to 6)
+    // ==========================================
+    const forestScreens = [
+      {
+        badge: 'SPLASH & WELCOME FLOW',
+        title: 'Welcome & Onboarding Portal',
+        desc: 'Entry point introducing users to the focus philosophy. Users explore language learning motivations, discover vocabulary with joy, and route to authenticated user sessions.',
+        img: 'forest-1.png',
+        features: [
+          'Clean, distraction-free visual onboarding setting positive productivity intentions.',
+          'Fluid routing directly into user account registration and sign-in pipelines.'
+        ]
+      },
+      {
+        badge: 'AUTHENTICATION & OTP SECURITY',
+        title: 'Account Registration & 2FA Validation',
+        desc: 'Secure signup requiring institutional email verification with real-time 6-digit OTP code input, countdown resend timers, and instant success confirmation modals.',
+        img: 'forest-2.png',
+        features: [
+          'Timed 60-second passcode expiration to block automated credential attacks.',
+          'Immediate confetti visual reward state upon successful account provisioning.'
+        ]
+      },
+      {
+        badge: 'DIGITAL FOREST & COIN ECONOMY',
+        title: 'Home Dashboard & Forest View',
+        desc: 'Dynamic home screen displaying the user\'s current coin reserve (280 coins) and floating island where completed focus sessions materialize as growing trees.',
+        img: 'forest-3.png',
+        features: [
+          'Visual progress indicators: each focused session adds a unique tree to the digital island.',
+          'In-game incentives and coins accumulated through sustained concentration sessions.'
+        ]
+      },
+      {
+        badge: 'TASK MANAGER & POMODORO TIMER',
+        title: 'Focus Task Manager & Countdown Engine',
+        desc: 'Customizable productivity routine allowing users to tag specific activities (Journaling, Studying, Reading, Running) with dedicated 60-minute countdown cycles and abandon safeguards.',
+        img: 'forest-4.png',
+        features: [
+          'Behavioral penalty system: switching apps or abandoning the timer terminates the tree.',
+          'Granular category tagging mapping time investments to specific life goals.'
+        ]
+      },
+      {
+        badge: 'STREAKS & ACHIEVEMENTS',
+        title: 'Achievements & Milestone Rewards',
+        desc: 'Comprehensive gamification board celebrating consistency metrics: total trees planted (30), longest active day streak (7 days), rare species unlocks, and completion badges.',
+        img: 'forest-5.png',
+        features: [
+          'Tiered achievement unlocks (25-minute milestones, 7-day streaks, rare foliage).',
+          'Motivational reward loops driving consistent daily mobile habit reformation.'
+        ]
+      },
+      {
+        badge: 'ACCOUNT & FAQ SYSTEM',
+        title: 'Profile Settings, Membership, & FAQs',
+        desc: 'Full user account control suite including custom avatar selection, tiered membership management (Free, Premium, Family, Lifetime), interactive FAQs, and safe account deletion dialogues.',
+        img: 'forest-6.png',
+        features: [
+          'Tiered subscription model management and personal profile customizers.',
+          'Defensive user privacy safeguards including irreversible account termination flows.'
+        ]
+      }
+    ];
+
+    function setForestScreen(index) {
+      playSfx('click');
+      const item = forestScreens[index];
+      if (!item) return;
+
+      document.getElementById('forest-screen-badge').innerText = item.badge;
+      document.getElementById('forest-counter').innerText = `Screen ${index + 1} of 6`;
+      document.getElementById('active-forest-img').src = item.img;
+      document.getElementById('forest-screen-title').innerText = item.title;
+      document.getElementById('forest-screen-desc').innerText = item.desc;
+
+      const featContainer = document.getElementById('forest-screen-features');
+      featContainer.innerHTML = '';
+      item.features.forEach(feat => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/80';
+        li.innerHTML = `<span class="text-emerald-400 shrink-0">🌲</span><span>${feat}</span>`;
+        featContainer.appendChild(li);
+      });
+
+      const tabs = document.querySelectorAll('.forest-tab');
+      tabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add('border-emerald-500', 'bg-emerald-500/10', 'text-white');
+          tab.classList.remove('border-slate-800', 'bg-slate-900/60', 'text-slate-400');
+        } else {
+          tab.classList.remove('border-emerald-500', 'bg-emerald-500/10', 'text-white');
+          tab.classList.add('border-slate-800', 'bg-slate-900/60', 'text-slate-400');
+        }
+      });
+    }
+
+    // ==========================================
     // 3D LANYARD & BADGE PHYSICS + FLIP
     // ==========================================
     const card = document.getElementById('interactive-card');
@@ -1196,14 +1398,14 @@
         ]
       },
       'forest-timer': {
-        tag: 'Interaction Prototype · 2025',
+        tag: 'ITS142L Group 18 · Interaction Prototype',
         title: 'Forest: Gamified Productivity & Focus Prototype',
-        subtitle: 'Behavioral UX & Frontend Interaction Design',
-        problem: 'Focus timers often feel repetitive and disengaging, resulting in high user drop-off and abandoned work sessions.',
-        solution: 'Built an interactive focus tool combining gamified SVG reward feedback, concentration timers, and responsive dashboard stats.',
+        subtitle: 'Josef Anza · Anicia Bonayao · John Carlo Dasas · Kyle De La Llave',
+        problem: 'Mobile device distractions frequently disrupt study and work workflows for young professionals aged 16–30, leading to abandoned tasks.',
+        solution: 'Engineered an engaging mobile interaction system pairing countdown focus sessions with a virtual tree growth ecosystem and achievement loops.',
         security: [
-          'Zero external tracking dependencies and zero client-side eval execution for pristine performance and safety.',
-          'Strict local state persistence using sandboxed storage schemas.'
+          'Session-isolated focus timers eliminating unauthorized client-side timing tamper events.',
+          'Time-locked OTP challenges securing student profile provisioning and cloud synchronization.'
         ]
       }
     };
