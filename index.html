@@ -71,9 +71,9 @@
 
       <nav class="hidden md:flex items-center gap-6 text-xs font-mono text-slate-400">
         <a href="#about" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">About</a>
+        <a href="#projects" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Projects</a>
         <a href="#thesis-spotlight" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Thesis</a>
         <a href="#forest-spotlight" onmouseenter="playSfx('hover')" class="hover:text-emerald-400 transition">Forest UI</a>
-        <a href="#projects" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Projects</a>
         <a href="#experience" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Experience</a>
         <a href="#credentials" onmouseenter="playSfx('hover')" class="hover:text-blue-400 transition">Credentials</a>
       </nav>
@@ -101,6 +101,7 @@
   </header>
 
   <main class="max-w-5xl mx-auto px-6 py-12 sm:py-20">
+    <!-- HERO SECTION -->
     <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
       <div class="lg:col-span-7 space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
@@ -266,7 +267,112 @@
       </div>
     </section>
 
-    <!-- THESIS SHOWCASE -->
+    <!-- KEY PROJECTS & RESEARCH -->
+    <section id="projects" class="space-y-6 mb-24">
+      <div class="flex items-end justify-between border-b border-slate-800/80 pb-4">
+        <div>
+          <h2 class="text-xs font-mono uppercase tracking-wider text-blue-400">Featured Portfolio</h2>
+          <p class="text-xl font-bold text-white mt-1">Key Projects & Research</p>
+        </div>
+        <span class="text-xs font-mono text-slate-500">Click card for technical deep-dive</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <article onclick="openProjectDrawer('qr-school')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Academic Thesis</span>
+              <span class="text-xs font-mono text-slate-500">2025</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-blue-300 transition">
+                QR-Code School Management System
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Led the architectural design, implementation, and deployment of a QR-code-driven school management system to streamline institutional operations and tracking.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">QR Code Integration</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">System Architecture</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Defensive Backend</span>
+          </div>
+        </article>
+
+        <article onclick="openProjectDrawer('lost-found')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">AI / Computer Vision</span>
+              <span class="text-xs font-mono text-slate-500">2025</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-cyan-300 transition">
+                Campus Lost & Found Tracker with AI Image Matching
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Automated campus recovery tool using computer vision and AI image matching to pair photos of lost items with database records, designing user-friendly workflows.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Computer Vision</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">AI Image Matching</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">UI Workflows</span>
+          </div>
+        </article>
+
+        <article onclick="openProjectDrawer('malware-eval')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Security Research</span>
+              <span class="text-xs font-mono text-slate-500">2025</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-indigo-300 transition">
+                Smartphone Security vs Mobile Banking Malware
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Conducted penetration testing evaluating SSL/TLS configuration vulnerabilities, local data storage flaws, overlay attacks, and accessibility service abuse.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Pen-Testing</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">SSL/TLS Assessment</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Malware Analysis</span>
+          </div>
+        </article>
+
+        <article onclick="openProjectDrawer('forest-timer')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">UI & Interaction Prototype</span>
+              <span class="text-xs font-mono text-slate-500">2025</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white group-hover:text-emerald-300 transition">
+                Forest: Gamified Productivity & Focus Prototype
+              </h3>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all"></i>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Engineered a gamified productivity application combining behavioral motivation principles, timer sessions, and goal visualization to foster concentration.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Frontend UI</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Gamification</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Timer Cycles</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- THESIS SHOWCASE (MOVED BELOW KEY PROJECTS) -->
     <section id="thesis-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
@@ -379,7 +485,7 @@
       </div>
     </section>
 
-    <!-- FOREST SHOWCASE -->
+    <!-- FOREST SHOWCASE (MOVED BELOW KEY PROJECTS) -->
     <section id="forest-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
@@ -474,111 +580,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS LIST -->
-    <section id="projects" class="space-y-6 mb-24">
-      <div class="flex items-end justify-between border-b border-slate-800/80 pb-4">
-        <div>
-          <h2 class="text-xs font-mono uppercase tracking-wider text-blue-400">Featured Portfolio</h2>
-          <p class="text-xl font-bold text-white mt-1">Key Projects & Research</p>
-        </div>
-        <span class="text-xs font-mono text-slate-500">Click card for technical deep-dive</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <article onclick="openProjectDrawer('qr-school')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Academic Thesis</span>
-              <span class="text-xs font-mono text-slate-500">2025</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <h3 class="text-base font-semibold text-white group-hover:text-blue-300 transition">
-                QR-Code School Management System
-              </h3>
-              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"></i>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Led the architectural design, implementation, and deployment of a QR-code-driven school management system to streamline institutional operations and tracking.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">QR Code Integration</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">System Architecture</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Defensive Backend</span>
-          </div>
-        </article>
-
-        <article onclick="openProjectDrawer('lost-found')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">AI / Computer Vision</span>
-              <span class="text-xs font-mono text-slate-500">2025</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <h3 class="text-base font-semibold text-white group-hover:text-cyan-300 transition">
-                Campus Lost & Found Tracker with AI Image Matching
-              </h3>
-              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all"></i>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Automated campus recovery tool using computer vision and AI image matching to pair photos of lost items with database records, designing user-friendly workflows.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Computer Vision</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">AI Image Matching</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">UI Workflows</span>
-          </div>
-        </article>
-
-        <article onclick="openProjectDrawer('malware-eval')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Security Research</span>
-              <span class="text-xs font-mono text-slate-500">2025</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <h3 class="text-base font-semibold text-white group-hover:text-indigo-300 transition">
-                Smartphone Security vs Mobile Banking Malware
-              </h3>
-              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all"></i>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Conducted penetration testing evaluating SSL/TLS configuration vulnerabilities, local data storage flaws, overlay attacks, and accessibility service abuse.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Pen-Testing</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">SSL/TLS Assessment</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Malware Analysis</span>
-          </div>
-        </article>
-
-        <article onclick="openProjectDrawer('forest-timer')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">UI & Interaction Prototype</span>
-              <span class="text-xs font-mono text-slate-500">2025</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <h3 class="text-base font-semibold text-white group-hover:text-emerald-300 transition">
-                Forest: Gamified Productivity & Focus Prototype
-              </h3>
-              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all"></i>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Engineered a gamified productivity application combining behavioral motivation principles, timer sessions, and goal visualization to foster concentration.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Frontend UI</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Gamification</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Timer Cycles</span>
-          </div>
-        </article>
       </div>
     </section>
 
