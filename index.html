@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Josef Rolando II P. Anza — Portfolio</title>
-  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -24,18 +23,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    /* 3D Transform & Lanyard Styles */
-    .perspective-container {
-      perspective: 1200px;
-    }
+    .perspective-container { perspective: 1200px; }
     .badge-card {
       transform-style: preserve-3d;
       transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       will-change: transform;
     }
-    .badge-card.is-flipped {
-      transform: perspective(1200px) rotateY(180deg);
-    }
+    .badge-card.is-flipped { transform: perspective(1200px) rotateY(180deg); }
     .card-face {
       position: absolute;
       inset: 0;
@@ -44,9 +38,7 @@
       border-radius: 1rem;
       pointer-events: auto;
     }
-    .card-back {
-      transform: rotateY(180deg);
-    }
+    .card-back { transform: rotateY(180deg); }
     .badge-glare {
       background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 65%);
       pointer-events: none;
@@ -55,9 +47,7 @@
       0%, 100% { transform: rotate(-1.5deg) translateY(0); }
       50% { transform: rotate(1.5deg) translateY(-4px); }
     }
-    .swaying {
-      animation: gentleSway 5s ease-in-out infinite;
-    }
+    .swaying { animation: gentleSway 5s ease-in-out infinite; }
     .hologram-foil {
       background: linear-gradient(135deg, rgba(255,0,128,0.15), rgba(0,255,255,0.15), rgba(255,255,0,0.15));
       mix-blend-mode: overlay;
@@ -67,13 +57,11 @@
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen selection:bg-blue-600 selection:text-white">
 
-  <!-- Background Glow Elements -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden">
     <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
     <div class="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
   </div>
 
-  <!-- Navigation Bar -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-[#0b0f19]/80 border-b border-slate-800/60">
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2">
@@ -91,18 +79,15 @@
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-3">
-        <!-- SFX Toggle -->
         <button id="sfx-toggle" onclick="toggleAudio()" class="px-2 py-1.5 rounded-lg text-xs font-mono border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-white transition flex items-center gap-1.5">
           <i data-lucide="volume-x" id="sfx-icon" class="w-3.5 h-3.5 text-slate-500"></i>
           <span id="sfx-text" class="hidden sm:inline">SFX: OFF</span>
         </button>
 
-        <!-- LinkedIn Header Icon -->
         <a href="https://www.linkedin.com/in/jorol-anza-118665399/" target="_blank" rel="noopener noreferrer" onmouseenter="playSfx('hover')" onclick="playSfx('click')" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 transition" title="LinkedIn Profile">
           <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i>
         </a>
 
-        <!-- Resume Download / View Button -->
         <button onclick="openResumeModal()" onmouseenter="playSfx('hover')" class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-800 hover:bg-slate-700 text-blue-300 border border-slate-700/80 transition flex items-center gap-1.5 shadow-sm">
           <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400"></i>
           <span>Resume</span>
@@ -115,11 +100,8 @@
     </div>
   </header>
 
-  <!-- Hero Section with Interactive 3D Lanyard ID Badge -->
   <main class="max-w-5xl mx-auto px-6 py-12 sm:py-20">
     <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-      
-      <!-- Left Column: Introduction & Pitch -->
       <div class="lg:col-span-7 space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
           <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
@@ -134,7 +116,6 @@
           Information Technology graduate from <strong class="text-white">Mapúa University</strong> (1.334 GWA, Dean's Lister Rank 4). Aspiring <strong class="text-white">Web & UI Developer</strong> passionate about designing clean, intuitive interfaces backed by rock-solid cybersecurity fundamentals and defensive coding.
         </p>
 
-        <!-- Fast Contact Stats -->
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs">
           <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
             <span class="text-slate-500 block font-mono text-[10px] uppercase">Location</span>
@@ -150,7 +131,6 @@
           </div>
         </div>
 
-        <!-- Action Buttons -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
           <a href="https://www.linkedin.com/in/jorol-anza-118665399/" target="_blank" rel="noopener noreferrer" onmouseenter="playSfx('hover')" onclick="playSfx('click')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-sm shadow-blue-500/20 transition">
             <i data-lucide="linkedin" class="w-4 h-4"></i>
@@ -170,23 +150,16 @@
         </div>
       </div>
 
-      <!-- Right Column: Interactive 3D Lanyard & ID Card (Flippable) -->
       <div class="lg:col-span-5 flex flex-col items-center justify-center perspective-container select-none">
-        
-        <!-- Lanyard Strap Top -->
         <div class="w-10 h-16 bg-gradient-to-b from-blue-700 to-blue-900 rounded-t-sm shadow-md flex items-center justify-center relative">
           <span class="text-[9px] font-mono text-blue-200 font-bold uppercase tracking-widest rotate-90">MAPÚA</span>
         </div>
-        <!-- Metallic Carabiner Clip -->
         <div class="w-6 h-5 border-2 border-slate-400 bg-slate-600 rounded-b-md shadow-inner mb-[-2px] z-10 flex items-center justify-center">
           <div class="w-2.5 h-1.5 bg-slate-800 rounded-full"></div>
         </div>
 
-        <!-- 3D Flippable Hanging Badge -->
         <div id="interactive-card-wrapper" class="relative w-72 sm:w-80 h-[470px]">
           <div id="interactive-card" class="badge-card swaying w-full h-full relative cursor-grab active:cursor-grabbing">
-            
-            <!-- FRONT SIDE OF BADGE -->
             <div class="card-face p-5 bg-gradient-to-b from-slate-900 to-[#121929] border border-blue-500/40 shadow-2xl flex flex-col justify-between">
               <div class="w-12 h-2.5 bg-slate-950 rounded-full mx-auto mb-2 border border-slate-800"></div>
 
@@ -219,7 +192,6 @@
               <div id="card-glare" class="badge-glare absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-200"></div>
             </div>
 
-            <!-- BACK SIDE OF BADGE (Security Clearance & Scannable QR) -->
             <div class="card-face card-back p-5 bg-gradient-to-b from-[#0e1424] to-[#090d16] border border-cyan-500/40 shadow-2xl flex flex-col justify-between">
               <div class="w-12 h-2.5 bg-slate-950 rounded-full mx-auto mb-2 border border-slate-800"></div>
 
@@ -285,7 +257,6 @@
                 </button>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -295,10 +266,8 @@
       </div>
     </section>
 
-    <!-- ======================================================== -->
-    <!-- THESIS PROJECT SPOTLIGHT & INTERACTIVE 8-SCREEN VIEWER   -->
-    <!-- ======================================================== -->
-    <section id="thesis-spotlight" class="space-y-6 mb-24">
+    <!-- THESIS SHOWCASE -->
+    <section id="thesis-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
           <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-mono mb-2">
@@ -317,10 +286,7 @@
         </div>
       </div>
 
-      <!-- Main Showcase Container -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-slate-900/40 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-md">
-        
-        <!-- Left: Interactive Screenshot Showcase Screen -->
         <div class="lg:col-span-8 space-y-4">
           <div class="rounded-2xl border border-slate-700/80 bg-slate-950 overflow-hidden shadow-2xl">
             <div class="bg-slate-900 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs font-mono">
@@ -335,50 +301,45 @@
 
             <div class="relative aspect-video w-full bg-slate-950 flex items-center justify-center overflow-hidden group">
               <img id="active-screen-img" src="1.png" alt="QR School System Screen" class="w-full h-full object-contain bg-[#0f1422] transition duration-300" />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2 pointer-events-none">
-                <span class="text-xs font-mono text-white px-3 py-1.5 rounded-lg bg-black/70 backdrop-blur-sm border border-slate-700">Previewing Screenshot</span>
-              </div>
             </div>
           </div>
 
-          <!-- 8 Screenshot Selector Tabs -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
-            <button onclick="setScreen(0)" onmouseenter="playSfx('hover')" class="screen-tab active p-2 rounded-xl border border-blue-500 bg-blue-500/10 text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">1. Login Portal</span>
-              <span class="text-[9px] text-slate-400">1.png</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono relative z-20">
+            <button type="button" onclick="setScreen(0)" onmouseenter="playSfx('hover')" class="screen-tab active p-2 rounded-xl border border-blue-500 bg-blue-500/10 text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">1. Login Portal</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">1.png</span>
             </button>
-            <button onclick="setScreen(1)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">2. Registration</span>
-              <span class="text-[9px] text-slate-400">2.png</span>
+            <button type="button" onclick="setScreen(1)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">2. Registration</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">2.png</span>
             </button>
-            <button onclick="setScreen(2)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">3. 2FA Security</span>
-              <span class="text-[9px] text-slate-400">3.png</span>
+            <button type="button" onclick="setScreen(2)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">3. 2FA Security</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">3.png</span>
             </button>
-            <button onclick="setScreen(3)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">4. Gate Access Key</span>
-              <span class="text-[9px] text-slate-400">4.png</span>
+            <button type="button" onclick="setScreen(3)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">4. Gate Access Key</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">4.png</span>
             </button>
-            <button onclick="setScreen(4)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">5. Check-In Lens</span>
-              <span class="text-[9px] text-slate-400">5.png</span>
+            <button type="button" onclick="setScreen(4)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">5. Check-In Lens</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">5.png</span>
             </button>
-            <button onclick="setScreen(5)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">6. Lost & Found</span>
-              <span class="text-[9px] text-slate-400">6.png</span>
+            <button type="button" onclick="setScreen(5)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">6. Lost & Found</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">6.png</span>
             </button>
-            <button onclick="setScreen(6)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">7. Token Generator</span>
-              <span class="text-[9px] text-slate-400">7.png</span>
+            <button type="button" onclick="setScreen(6)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">7. Token Generator</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">7.png</span>
             </button>
-            <button onclick="setScreen(7)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-              <span class="font-semibold block text-[11px]">8. Faculty Command</span>
-              <span class="text-[9px] text-slate-400">8.png</span>
+            <button type="button" onclick="setScreen(7)" onmouseenter="playSfx('hover')" class="screen-tab p-2 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+              <span class="font-semibold block text-[11px] pointer-events-none">8. Faculty Command</span>
+              <span class="text-[9px] text-slate-400 pointer-events-none">8.png</span>
             </button>
           </div>
         </div>
 
-        <!-- Right: Screen Details & Technical Breakdown -->
         <div class="lg:col-span-4 flex flex-col justify-between space-y-4">
           <div class="space-y-4">
             <div>
@@ -415,14 +376,11 @@
             </button>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ======================================================== -->
-    <!-- FOREST GAMIFIED PRODUCTIVITY APP SPOTLIGHT (MOBILE GUI)  -->
-    <!-- ======================================================== -->
-    <section id="forest-spotlight" class="space-y-6 mb-24">
+    <!-- FOREST SHOWCASE -->
+    <section id="forest-spotlight" class="space-y-6 mb-24 relative z-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-4 gap-2">
         <div>
           <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono mb-2">
@@ -441,27 +399,21 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-slate-900/40 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-md items-center">
-        
-        <!-- Left: Realistic Mobile Phone Mockup Frame -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative w-64 sm:w-72 aspect-[9/19] rounded-[2.5rem] bg-slate-950 p-3 shadow-2xl border-4 border-slate-800 ring-1 ring-emerald-500/30">
-            <!-- Mobile Camera Notch & Speaker Grill -->
             <div class="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-900 rounded-full z-20 flex items-center justify-center">
               <span class="w-2.5 h-2.5 rounded-full bg-slate-950 mr-2"></span>
               <span class="w-8 h-1 bg-slate-800 rounded-full"></span>
             </div>
 
-            <!-- Mobile Screen Display Area -->
             <div class="w-full h-full rounded-[2rem] overflow-hidden bg-slate-900 relative flex items-center justify-center">
               <img id="active-forest-img" src="forest-1.png" alt="Forest Mobile UI Screen" class="w-full h-full object-cover object-top transition duration-300" />
             </div>
 
-            <!-- Mobile Home Bar Indicator -->
             <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-slate-700 rounded-full z-20"></div>
           </div>
         </div>
 
-        <!-- Right: Forest Interactive Flow Selector & Technical Deep Dive -->
         <div class="lg:col-span-7 flex flex-col justify-between space-y-5">
           <div class="space-y-4">
             <div>
@@ -471,11 +423,10 @@
               </div>
               <h3 id="forest-screen-title" class="text-xl font-bold text-white mt-1">Welcome & Onboarding Portal</h3>
               <p id="forest-screen-desc" class="text-xs text-slate-300 leading-relaxed mt-2 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                Entry point introducing users to the focus philosophy. Users discover vocabulary, set daily focus commitments, and route to authenticated user sessions.
+                Entry point introducing users to the focus philosophy. Users explore language learning motivations, discover vocabulary with joy, and route to authenticated user sessions.
               </p>
             </div>
 
-            <!-- UI/UX & Gamification Mechanics -->
             <div>
               <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold flex items-center gap-1.5 mb-2">
                 <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Interaction & Gamification Highlights
@@ -493,42 +444,40 @@
             </div>
           </div>
 
-          <!-- 6 Mobile Flow Tabs -->
-          <div class="space-y-2 pt-2">
+          <div class="space-y-2 pt-2 relative z-20">
             <span class="text-[10px] font-mono uppercase text-slate-500 block">Select Mobile Screen Workflow:</span>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-mono">
-              <button onclick="setForestScreen(0)" onmouseenter="playSfx('hover')" class="forest-tab active p-2.5 rounded-xl border border-emerald-500 bg-emerald-500/10 text-white text-left transition flex flex-col justify-between">
-                <span class="font-semibold block text-[11px]">1. Splash</span>
-                <span class="text-[9px] text-slate-400">forest-1.png</span>
+              <button type="button" onclick="setForestScreen(0)" onmouseenter="playSfx('hover')" class="forest-tab active p-2.5 rounded-xl border border-emerald-500 bg-emerald-500/10 text-white text-left transition flex flex-col justify-between cursor-pointer">
+                <span class="font-semibold block text-[11px] pointer-events-none">1. Splash</span>
+                <span class="text-[9px] text-slate-400 pointer-events-none">forest-1.png</span>
               </button>
-              <button onclick="setForestScreen(1)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-                <span class="font-semibold block text-[11px]">2. Auth & OTP</span>
-                <span class="text-[9px] text-slate-400">forest-2.png</span>
+              <button type="button" onclick="setForestScreen(1)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+                <span class="font-semibold block text-[11px] pointer-events-none">2. Auth & OTP</span>
+                <span class="text-[9px] text-slate-400 pointer-events-none">forest-2.png</span>
               </button>
-              <button onclick="setForestScreen(2)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-                <span class="font-semibold block text-[11px]">3. Home Forest</span>
-                <span class="text-[9px] text-slate-400">forest-3.png</span>
+              <button type="button" onclick="setForestScreen(2)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+                <span class="font-semibold block text-[11px] pointer-events-none">3. Home Forest</span>
+                <span class="text-[9px] text-slate-400 pointer-events-none">forest-3.png</span>
               </button>
-              <button onclick="setForestScreen(3)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-                <span class="font-semibold block text-[11px]">4. Focus Tasks</span>
-                <span class="text-[9px] text-slate-400">forest-4.png</span>
+              <button type="button" onclick="setForestScreen(3)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+                <span class="font-semibold block text-[11px] pointer-events-none">4. Focus Tasks</span>
+                <span class="text-[9px] text-slate-400 pointer-events-none">forest-4.png</span>
               </button>
-              <button onclick="setForestScreen(4)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-                <span class="font-semibold block text-[11px]">5. Streaks</span>
-                <span class="text-[9px] text-slate-400">forest-5.png</span>
+              <button type="button" onclick="setForestScreen(4)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+                <span class="font-semibold block text-[11px] pointer-events-none">5. Streaks</span>
+                <span class="text-[9px] text-slate-400 pointer-events-none">forest-5.png</span>
               </button>
-              <button onclick="setForestScreen(5)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between">
-                <span class="font-semibold block text-[11px]">6. Account</span>
-                <span class="text-[9px] text-slate-400">forest-6.png</span>
+              <button type="button" onclick="setForestScreen(5)" onmouseenter="playSfx('hover')" class="forest-tab p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white text-left transition flex flex-col justify-between cursor-pointer">
+                <span class="font-semibold block text-[11px] pointer-events-none">6. Account</span>
+                <span class="text-[9px] text-slate-400 pointer-events-none">forest-6.png</span>
               </button>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- Projects Section with Interactive Deep-Dive Drawer -->
+    <!-- PROJECTS LIST -->
     <section id="projects" class="space-y-6 mb-24">
       <div class="flex items-end justify-between border-b border-slate-800/80 pb-4">
         <div>
@@ -539,8 +488,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        
-        <!-- Project 1 -->
         <article onclick="openProjectDrawer('qr-school')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
@@ -564,7 +511,6 @@
           </div>
         </article>
 
-        <!-- Project 2 -->
         <article onclick="openProjectDrawer('lost-found')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
@@ -588,7 +534,6 @@
           </div>
         </article>
 
-        <!-- Project 3 -->
         <article onclick="openProjectDrawer('malware-eval')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
@@ -612,7 +557,6 @@
           </div>
         </article>
 
-        <!-- Project 4 -->
         <article onclick="openProjectDrawer('forest-timer')" onmouseenter="playSfx('hover')" class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900/60 transition flex flex-col justify-between group cursor-pointer shadow-lg">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
@@ -635,11 +579,10 @@
             <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">Timer Cycles</span>
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- Work Experience Section -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="space-y-6 mb-24">
       <div class="border-b border-slate-800/80 pb-4">
         <h2 class="text-xs font-mono uppercase tracking-wider text-blue-400">Career History</h2>
@@ -668,10 +611,8 @@
       </div>
     </section>
 
-    <!-- Education & Certifications Section -->
+    <!-- CREDENTIALS -->
     <section id="credentials" class="space-y-12 mb-24">
-      
-      <!-- Education & Honors -->
       <div class="space-y-5">
         <div class="border-b border-slate-800/80 pb-3">
           <h2 class="text-xs font-mono uppercase tracking-wider text-blue-400">Academics</h2>
@@ -713,7 +654,6 @@
         </div>
       </div>
 
-      <!-- All 12 Certifications with Interactive Filtering -->
       <div class="space-y-5">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800/80 pb-3 gap-3">
           <div>
@@ -729,8 +669,6 @@
         </div>
 
         <div id="cert-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
-          
-          <!-- Google Cybersecurity Suite -->
           <div onmouseenter="playSfx('hover')" class="cert-card cert-google p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex justify-between items-center hover:border-slate-700 transition">
             <div class="space-y-0.5">
               <span class="text-slate-200 font-medium block">Play It Safe: Manage Security Risks</span>
@@ -779,7 +717,6 @@
             <span class="text-blue-400 text-[11px] shrink-0 ml-2">Jul 2025</span>
           </div>
 
-          <!-- Packt Cloud Suite -->
           <div onmouseenter="playSfx('hover')" class="cert-card cert-cloud p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex justify-between items-center hover:border-slate-700 transition">
             <div class="space-y-0.5">
               <span class="text-slate-200 font-medium block">Cloud Architecture and Security</span>
@@ -804,7 +741,6 @@
             <span class="text-blue-400 text-[11px] shrink-0 ml-2">Mar 2026</span>
           </div>
 
-          <!-- AI & Programming -->
           <div onmouseenter="playSfx('hover')" class="cert-card cert-ai p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex justify-between items-center hover:border-slate-700 transition">
             <div class="space-y-0.5">
               <span class="text-slate-200 font-medium block">AI For Everyone</span>
@@ -828,13 +764,10 @@
             </div>
             <span class="text-blue-400 text-[11px] shrink-0 ml-2">Apr 2025</span>
           </div>
-
         </div>
       </div>
-
     </section>
 
-    <!-- Footer -->
     <footer class="pt-8 border-t border-slate-800 text-xs font-mono text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
       <span>Josef Rolando II P. Anza · 2026</span>
       <div class="flex items-center gap-6">
@@ -846,12 +779,9 @@
     </footer>
   </main>
 
-  <!-- ======================================================== -->
-  <!-- MODAL: EMBEDDED RESUME VIEWER                           -->
-  <!-- ======================================================== -->
+  <!-- RESUME MODAL -->
   <div id="resume-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      
       <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/80">
         <div class="flex items-center gap-2">
           <i data-lucide="file-text" class="w-4 h-4 text-blue-400"></i>
@@ -867,21 +797,17 @@
           </button>
         </div>
       </div>
-
       <div class="flex-1 w-full bg-slate-950 relative">
         <iframe src="resume.pdf" class="w-full h-full border-none" title="Josef Anza Resume"></iframe>
       </div>
     </div>
   </div>
 
-  <!-- ======================================================== -->
-  <!-- DRAWER: TECHNICAL PROJECT DEEP-DIVE INSPECTOR            -->
-  <!-- ======================================================== -->
-  <div id="project-drawer-backdrop" onclick="closeProjectDrawer()" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <!-- PROJECT DRAWER BACKDROP & PANEL -->
+  <div id="project-drawer-backdrop" onclick="closeProjectDrawer()" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm"></div>
   
   <aside id="project-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-lg bg-[#0d121f] border-l border-slate-800 p-6 shadow-2xl translate-x-full transition-transform duration-300 ease-out overflow-y-auto flex flex-col justify-between">
     <div class="space-y-6">
-      
       <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
         <span id="drawer-tag" class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Thesis Project</span>
         <button onclick="closeProjectDrawer()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
@@ -897,43 +823,34 @@
       <div class="space-y-4 text-xs leading-relaxed text-slate-300">
         <div>
           <h4 class="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold mb-1">Problem Statement</h4>
-          <p id="drawer-problem" class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80">Traditional manual paper logs and static badge check-ins suffered from operational bottlenecks, tampering risks, and lack of real-time attendance auditing.</p>
+          <p id="drawer-problem" class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80"></p>
         </div>
 
         <div>
           <h4 class="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold mb-1">Architecture & Solution</h4>
-          <p id="drawer-solution" class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80">Engineered an end-to-end management pipeline incorporating encrypted dynamic QR generation, secure administrative roles, and automated attendance synchronizations.</p>
+          <p id="drawer-solution" class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80"></p>
         </div>
 
         <div>
           <h4 class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-1 flex items-center gap-1.5">
             <i data-lucide="shield" class="w-3.5 h-3.5"></i> Defensive Security Highlights
           </h4>
-          <ul id="drawer-security" class="bg-slate-950 p-3.5 rounded-xl border border-emerald-500/20 space-y-2 text-slate-300 list-disc list-inside">
-            <li>Dynamic timestamped QR token generation to prevent badge spoofing or screen replay attacks.</li>
-            <li>Role-Based Access Control (RBAC) preventing unauthorized privilege escalation across campus roles.</li>
-          </ul>
+          <ul id="drawer-security" class="bg-slate-950 p-3.5 rounded-xl border border-emerald-500/20 space-y-2 text-slate-300 list-disc list-inside"></ul>
         </div>
       </div>
     </div>
 
     <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between gap-3">
-      <a href="https://qr-school-system-7fp2.vercel.app/login" target="_blank" rel="noopener noreferrer" onclick="playSfx('click')" class="px-4 py-2 rounded-xl text-xs font-mono font-medium bg-blue-600 hover:bg-blue-500 text-white flex items-center gap-1.5 transition shadow-sm">
-        <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Launch Live App
-      </a>
+      <div id="drawer-action-container"></div>
       <button onclick="closeProjectDrawer()" class="px-3 py-2 rounded-xl text-xs font-mono text-slate-400 hover:text-white">
         Close Inspector
       </button>
     </div>
   </aside>
 
-  <!-- Interactive Web Audio FX, Screenshot Showcase, & 3D Physics Script -->
   <script>
     lucide.createIcons();
 
-    // ==========================================
-    // SYNTHESIZED WEB AUDIO ENGINE
-    // ==========================================
     let audioCtx = null;
     let sfxEnabled = false;
 
@@ -1043,9 +960,6 @@
       } catch (e) {}
     }
 
-    // ==========================================
-    // THESIS SCREENSHOT SHOWCASE ENGINE (1-8.png)
-    // ==========================================
     const screens = [
       {
         badge: 'auth-login.view',
@@ -1161,9 +1075,6 @@
       });
     }
 
-    // ==========================================
-    // FOREST APP SHOWCASE ENGINE (forest-1 to 6)
-    // ==========================================
     const forestScreens = [
       {
         badge: 'SPLASH & WELCOME FLOW',
@@ -1259,9 +1170,6 @@
       });
     }
 
-    // ==========================================
-    // 3D LANYARD & BADGE PHYSICS + FLIP
-    // ==========================================
     const card = document.getElementById('interactive-card');
     const glare = document.getElementById('card-glare');
     let isFlipped = false;
@@ -1360,14 +1268,12 @@
       }
     });
 
-    // ==========================================
-    // PROJECT DRAWER DATA & LOGIC
-    // ==========================================
     const projectDetails = {
       'qr-school': {
         tag: 'Academic Thesis · 2025',
         title: 'QR-Code School Management System',
         subtitle: 'Mapúa University Makati · System Architecture',
+        liveUrl: 'https://qr-school-system-7fp2.vercel.app/login',
         problem: 'Institutional tracking and paper records incurred severe administrative delays, loss of attendance logs, and vulnerability to fraudulent check-ins.',
         solution: 'Built a full-lifecycle institutional management system integrating dynamic QR verification, encrypted attendance logs, and administrative portals.',
         security: [
@@ -1379,6 +1285,7 @@
         tag: 'Computer Vision / AI · 2025',
         title: 'Campus Lost & Found Tracker with AI Image Matching',
         subtitle: 'Automated Recovery Pipeline & UI Workflows',
+        liveUrl: null,
         problem: 'Students and campus security spent days sorting through disorganized lost physical inventory without an efficient indexing mechanism.',
         solution: 'Developed an automated recovery tool incorporating image feature vectors to calculate visual similarity between lost item reports and found items.',
         security: [
@@ -1390,6 +1297,7 @@
         tag: 'Security Research · 2025',
         title: 'Smartphone Security vs Mobile Banking Malware',
         subtitle: 'Offensive Penetration Testing & Vulnerability Assessment',
+        liveUrl: null,
         problem: 'Android banking apps remain frequent targets of overlay attacks, accessibility service hijacks, and transport layer interception.',
         solution: 'Conducted rigorous controlled laboratory penetration tests analyzing real-world attack vectors against banking apps and device sandboxes.',
         security: [
@@ -1401,6 +1309,7 @@
         tag: 'ITS142L Group 18 · Interaction Prototype',
         title: 'Forest: Gamified Productivity & Focus Prototype',
         subtitle: 'Josef Anza · Anicia Bonayao · John Carlo Dasas · Kyle De La Llave',
+        liveUrl: null,
         problem: 'Mobile device distractions frequently disrupt study and work workflows for young professionals aged 16–30, leading to abandoned tasks.',
         solution: 'Engineered an engaging mobile interaction system pairing countdown focus sessions with a virtual tree growth ecosystem and achievement loops.',
         security: [
@@ -1429,11 +1338,22 @@
         secList.appendChild(li);
       });
 
+      const actionContainer = document.getElementById('drawer-action-container');
+      if (key === 'qr-school' && data.liveUrl) {
+        actionContainer.innerHTML = `
+          <a href="${data.liveUrl}" target="_blank" rel="noopener noreferrer" onclick="playSfx('click')" class="px-4 py-2 rounded-xl text-xs font-mono font-medium bg-blue-600 hover:bg-blue-500 text-white flex items-center gap-1.5 transition shadow-sm">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Launch Live App
+          </a>
+        `;
+        lucide.createIcons();
+      } else {
+        actionContainer.innerHTML = '';
+      }
+
       const drawer = document.getElementById('project-drawer');
       const backdrop = document.getElementById('project-drawer-backdrop');
 
-      backdrop.classList.remove('pointer-events-none', 'opacity-0');
-      backdrop.classList.add('opacity-100');
+      backdrop.classList.remove('hidden');
       drawer.classList.remove('translate-x-full');
       document.body.classList.add('overflow-hidden');
     }
@@ -1443,15 +1363,11 @@
       const drawer = document.getElementById('project-drawer');
       const backdrop = document.getElementById('project-drawer-backdrop');
 
-      backdrop.classList.add('opacity-0', 'pointer-events-none');
-      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('hidden');
       drawer.classList.add('translate-x-full');
       document.body.classList.remove('overflow-hidden');
     }
 
-    // ==========================================
-    // RESUME MODAL VIEWER LOGIC
-    // ==========================================
     function openResumeModal() {
       playSfx('click');
       const modal = document.getElementById('resume-modal');
@@ -1468,9 +1384,6 @@
       document.body.classList.remove('overflow-hidden');
     }
 
-    // ==========================================
-    // CREDENTIALS FILTER & EMAIL COPY
-    // ==========================================
     function filterCerts(category, element) {
       playSfx('click');
       const tabs = document.querySelectorAll('.cert-tab');
