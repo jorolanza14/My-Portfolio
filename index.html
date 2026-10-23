@@ -92,16 +92,16 @@
         </span>
       </a>
 
-      <!-- Center Nav Links (Streamlined) -->
-      <nav class="hidden lg:flex items-center gap-8 text-[11px] font-mono tracking-wider uppercase text-slate-400">
-        <a href="#about" onmouseenter="playSfx('hover')" class="hover:text-white transition-colors">Home</a>
-        <a href="#capabilities" onmouseenter="playSfx('hover')" class="hover:text-white transition-colors relative py-1">
-          <span>What I Can Do</span>
-          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-[2px] bg-white rounded-full"></span>
-        </a>
-        <a href="#projects" onmouseenter="playSfx('hover')" class="hover:text-white transition-colors">Projects</a>
-        <a href="#experience" onmouseenter="playSfx('hover')" class="hover:text-white transition-colors">Experience</a>
-        <a href="#credentials" onmouseenter="playSfx('hover')" class="hover:text-white transition-colors">Certificates</a>
+      <!-- Center Nav Links with Dynamic Sliding Indicator -->
+      <nav id="nav-menu" class="relative hidden lg:flex items-center gap-8 text-[11px] font-mono tracking-wider uppercase text-slate-400 py-1">
+        <a href="#about" data-nav="about" onmouseenter="playSfx('hover')" class="nav-link py-1 hover:text-white transition-colors">Home</a>
+        <a href="#capabilities" data-nav="capabilities" onmouseenter="playSfx('hover')" class="nav-link py-1 hover:text-white transition-colors">What I Can Do</a>
+        <a href="#projects" data-nav="projects" onmouseenter="playSfx('hover')" class="nav-link py-1 hover:text-white transition-colors">Projects</a>
+        <a href="#experience" data-nav="experience" onmouseenter="playSfx('hover')" class="nav-link py-1 hover:text-white transition-colors">Experience</a>
+        <a href="#credentials" data-nav="credentials" onmouseenter="playSfx('hover')" class="nav-link py-1 hover:text-white transition-colors">Certificates</a>
+        
+        <!-- Animated Sliding Underline -->
+        <span id="nav-indicator" class="absolute bottom-0 h-[2px] bg-white rounded-full transition-all duration-300 ease-out pointer-events-none opacity-0"></span>
       </nav>
 
       <!-- Right Controls & Contact Button -->
@@ -1212,7 +1212,9 @@
       } catch (e) {}
     }
 
+    // ==========================================
     // TYPEWRITER ENGINE
+    // ==========================================
     function runTypewriter(elementId, text, speed, onComplete) {
       const el = document.getElementById(elementId);
       if (!el) return;
@@ -1249,6 +1251,77 @@
 
     const capSection = document.getElementById('capabilities');
     if (capSection) capabilitiesObserver.observe(capSection);
+
+    // ==========================================
+    // DYNAMIC MOVING SCROLLSPY UNDERLINE
+    // ==========================================
+    const navMenu = document.getElementById('nav-menu');
+    const navIndicator = document.getElementById('nav-indicator');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function updateNavIndicator(activeLink) {
+      if (!activeLink || !navIndicator || !navMenu) return;
+      const menuRect = navMenu.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+
+      const indicatorWidth = 24;
+      const leftPos = (linkRect.left - menuRect.left) + (linkRect.width / 2) - (indicatorWidth / 2);
+
+      navIndicator.style.width = `${indicatorWidth}px`;
+      navIndicator.style.transform = `translateX(${leftPos}px)`;
+      navIndicator.style.opacity = '1';
+
+      navLinks.forEach(link => {
+        if (link === activeLink) {
+          link.classList.add('text-white');
+          link.classList.remove('text-slate-400');
+        } else {
+          link.classList.remove('text-white');
+          link.classList.add('text-slate-400');
+        }
+      });
+    }
+
+    function onScrollSpy() {
+      const scrollPos = window.scrollY + 220;
+
+      const sections = [
+        { id: 'about', nav: 'about' },
+        { id: 'capabilities', nav: 'capabilities' },
+        { id: 'projects', nav: 'projects' },
+        { id: 'thesis-spotlight', nav: 'projects' },
+        { id: 'forest-spotlight', nav: 'projects' },
+        { id: 'experience', nav: 'experience' },
+        { id: 'credentials', nav: 'credentials' }
+      ];
+
+      let currentNav = 'about';
+
+      for (let i = 0; i < sections.length; i++) {
+        const el = document.getElementById(sections[i].id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPos >= top) {
+            currentNav = sections[i].nav;
+          }
+        }
+      }
+
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        currentNav = 'credentials';
+      }
+
+      const targetLink = document.querySelector(`.nav-link[data-nav="${currentNav}"]`);
+      if (targetLink) {
+        updateNavIndicator(targetLink);
+      }
+    }
+
+    window.addEventListener('scroll', onScrollSpy, { passive: true });
+    window.addEventListener('resize', onScrollSpy, { passive: true });
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(onScrollSpy, 150);
+    });
 
     // CONTACT MODAL LOGIC
     function openContactModal() {
